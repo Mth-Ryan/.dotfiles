@@ -1,4 +1,4 @@
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES=$(dirname "$(readlink -f $HOME/.zshrc)")
 
 export ZSH=$HOME/.oh-my-zsh
 
