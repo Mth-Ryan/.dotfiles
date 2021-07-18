@@ -16,7 +16,7 @@ NOC='\033[0m'
 # System dependencies
 PACKAGES=$(sed ':a;N;$!ba;s/\n/ /g' $DOTFILES/packages)
 
-echo -e "${GRE}[1] Installing the dependencies...${NOC}\n"
+echo -e "${GRE}[1] Installing System the dependencies...${NOC}\n"
 sudo apt install -y $PACKAGES
 
 echo -e "\n${GRE}[2] Cloning Oh-my-zsh and Asdf...${NOC}\n"
@@ -43,6 +43,11 @@ git -C ~/.asdf checkout \
     "$(git -C ~/.asdf describe --abbrev=0 --tags)"
 
 # Starship Prompt
-echo -e "\n${GRE}[3] Installing Starship Prompt${NOC}\n"
+echo -e "\n${GRE}[3] Installing Starship Prompt...${NOC}\n"
 curl -fsSL https://starship.rs/install.sh | sh
+
+# Vim Plug
+echo -e "\n${GRE}$[4] Installing Vim Plug{NOC}...\n"
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
