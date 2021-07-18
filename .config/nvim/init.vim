@@ -21,7 +21,7 @@ set encoding=utf-8
 
 " Plugins {{{
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 "Visual
 Plug 'ayu-theme/ayu-vim'      "colors
