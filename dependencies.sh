@@ -44,7 +44,7 @@ git -C ~/.asdf checkout \
 
 # Starship Prompt
 echo -e "\n${GRE}[3] Installing Starship Prompt...${NOC}\n"
-curl -fsSL https://starship.rs/install.sh | sh
+sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 
 # Vim Plug
 echo -e "\n${GRE}[4] Installing Vim Plug...${NOC}\n"
