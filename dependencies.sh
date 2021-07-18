@@ -2,10 +2,11 @@
 
 # File: dependencies.sh
 # Author: Mateus Ryan <mthryan@protonmailcom>
+# Args: $1 Dotfiles folder
 # Licence: MIT
 
 # Dotfiles folder
-DOTFILES=$HOME/.dotfiles
+DOTFILES=$1
 
 # Colors
 GRE='\033[0;32m'

@@ -2,9 +2,11 @@
 
 # File: symlinks.sh
 # Author: Mateus Ryan <mthryan@protonmailcom>
+# Args: $1 Dotfiles folder
 # Licence: MIT
 
-DOTFILES=$HOME/.dotfiles
+# Dotfiles folder
+DOTFILES=$1
 
 # Colors
 GRE="\033[0;32m"
