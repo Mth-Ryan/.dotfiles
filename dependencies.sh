@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# File: Dependencies.sh
+# File: dependencies.sh
 # Author: Mateus Ryan <mthryan@protonmailcom>
 # Licence: MIT
 
@@ -8,7 +8,6 @@
 DOTFILES=$HOME/.dotfiles
 
 # Colors
-RED='\033[0;31m'
 GRE='\033[0;32m'
 BLU='\033[0;34m'
 NOC='\033[0m'
@@ -47,7 +46,7 @@ echo -e "\n${GRE}[3] Installing Starship Prompt...${NOC}\n"
 curl -fsSL https://starship.rs/install.sh | sh
 
 # Vim Plug
-echo -e "\n${GRE}$[4] Installing Vim Plug{NOC}...\n"
+echo -e "\n${GRE}[4] Installing Vim Plug...${NOC}\n"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
