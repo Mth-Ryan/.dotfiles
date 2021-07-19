@@ -18,7 +18,14 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 
 # Asdf
-. $HOME/.asdf/asdf.sh
+source $HOME/.asdf/asdf.sh
+
+# Rustup
+source $HOME/.cargo/env
+
+# Go
+export GOPATH=$HOME/.go
+export GOBIN=$GOPATH/bin
 
 # Starship
 export STARSHIP_CONFIG=$HOME/.config/starship/config.toml

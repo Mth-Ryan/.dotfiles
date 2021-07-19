@@ -7,9 +7,11 @@
 " File:    init.vim
 " Author:  Mateus Ryan <mthryan@protonmail.com>
 " Licence: MIT
+" Require: Neovim >= 0.5
 
 " Initial Setup {{{
 
+syntax enable
 set nu!
 set termguicolors
 set tabstop=4
@@ -39,6 +41,8 @@ Plug 'keith/swift.vim'        "Swift
 Plug 'rust-lang/rust.vim'     "Rust
 
 call plug#end()
+
+filetype plugin indent on
 
 " }}}
 
@@ -75,6 +79,32 @@ EOF
 
 " VimScript
 au FileType vim setlocal foldmethod=marker
+
+" Go
+au FileType go nnoremap <F5> :GoBuild<CR>
+au FileType go nnoremap <F6> :GoRun<CR>
+
+let g:go_highlight_array_whitespace_error = 0
+let g:go_highlight_build_greenraints      = 1
+let g:go_highlight_chan_whitespace_error  = 0
+let g:go_highlight_extra_types            = 1
+let g:go_highlight_fields                 = 1
+let g:go_highlight_format_strings         = 1
+let g:go_highlight_function_calls         = 1
+let g:go_highlight_function_parameters    = 1
+let g:go_highlight_functions              = 1
+let g:go_highlight_generate_tags          = 1
+let g:go_highlight_operators              = 1
+let g:go_highlight_space_tab_error        = 0
+let g:go_highlight_string_spellcheck      = 1
+let g:go_highlight_types                  = 1
+let g:go_highlight_variable_assignments   = 1
+let g:go_highlight_variable_declarations  = 1
+
+" Rust
+au FileType rust nnoremap <F5> :Cargo build<CR>
+au FileType rust nnoremap <F6> :Cargo run<CR>
+
 
 " }}}
 
