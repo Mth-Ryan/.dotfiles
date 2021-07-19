@@ -17,6 +17,9 @@ NOC='\033[0m'
 PACKAGES=$(sed ':a;N;$!ba;s/\n/ /g' $DOTFILES/packages)
 
 echo -e "${GRE}[1] Installing System the dependencies...${NOC}\n"
+echo -e "${BLU}[1.1] Neovim Unstable PPA${NOC}\n"
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo apt-get update
 sudo apt install -y $PACKAGES
 
 echo -e "\n${GRE}[2] Cloning Oh-my-zsh and Asdf...${NOC}\n"
