@@ -31,6 +31,7 @@ Plug 'ap/vim-css-color'
 "Utility
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 "Languages
 Plug 'fatih/vim-go'           "Go
@@ -45,6 +46,8 @@ call plug#end()
 
 colorscheme xcodedark
 
+" Terminal Background color: #181B20
+
 hi! Normal      guibg=NONE ctermbg=NONE
 hi! NonText     guibg=NONE ctermbg=NONE
 hi! EndOfBuffer guibg=NONE ctermbg=NONE
@@ -52,6 +55,21 @@ hi! Folded      guibg=NONE ctermbg=NONE
 hi! Statement     gui=NONE   cterm=NONE
 
 " }}}
+
+" TreeSitter {{{
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  ignore_install = { "rust", "go", "swift" },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
+" }}} 
 
 " Languages {{{
 
