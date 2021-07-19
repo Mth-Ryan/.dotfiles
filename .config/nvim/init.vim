@@ -24,7 +24,7 @@ set encoding=utf-8
 call plug#begin('~/.config/nvim/plugged')
 
 "Visual
-Plug 'ayu-theme/ayu-vim'      "colors
+Plug 'arzg/vim-colors-xcode'  "colors
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 
@@ -42,9 +42,14 @@ call plug#end()
 " }}}
 
 " Colors {{{
-    
-let ayucolor="dark"
-colorscheme ayu
+
+colorscheme xcodedark
+
+hi! Normal      guibg=NONE ctermbg=NONE
+hi! NonText     guibg=NONE ctermbg=NONE
+hi! EndOfBuffer guibg=NONE ctermbg=NONE
+hi! Folded      guibg=NONE ctermbg=NONE
+hi! Statement     gui=NONE   cterm=NONE
 
 " }}}
 
@@ -60,7 +65,7 @@ au FileType vim setlocal foldmethod=marker
 let g:lightline = {}
 
 " Theme
-let s:bg0 = "#0F1419"
+let s:bg0 = "#181B20"
 let s:bg1 = "#191F25"
 let s:bg2 = "#232930"
 let s:fg0 = "#D3D6D9"
