@@ -29,6 +29,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'arzg/vim-colors-xcode'  "colors
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
 
 "Utility
 Plug 'jiangmiao/auto-pairs'
@@ -57,6 +59,27 @@ hi! NonText     guibg=NONE ctermbg=NONE
 hi! EndOfBuffer guibg=NONE ctermbg=NONE
 hi! Folded      guibg=NONE ctermbg=NONE
 hi! Statement     gui=NONE   cterm=NONE
+hi! foldcolumn  guibg=NONE
+hi! VertSplit   guibg=NONE guifg=#53606e
+
+hi! NvimTreeRootFolder       guifg=#53606e
+hi! NvimTreeSymlink          guifg=#a3b1bf
+hi! NvimTreeFolderName       guifg=#a3b1bf
+hi! NvimTreeFolderIcon       guifg=#a3b1bf
+hi! NvimTreeEmptyFolderName  guifg=#a3b1bf
+hi! NvimTreeOpenedFolderName guifg=#a3b1bf
+hi! NvimTreeExecFile         guifg=#dabaff
+hi! NvimTreeOpenedFile       guifg=#a3b1bf
+hi! NvimTreeSpecialFile      guifg=#a3b1bf
+hi! NvimTreeImageFile        guifg=#a3b1bf
+hi! NvimTreeMarkdownFile     guifg=#a3b1bf
+hi! NvimTreeIndentMarker     guifg=#a3b1bf
+hi! NvimTreeGitDirty         guifg=#a3b1bf
+hi! NvimTreeGitStaged        guifg=#a3b1bf
+hi! NvimTreeGitMerge         guifg=#a3b1bf
+hi! NvimTreeGitRenamed       guifg=#a3b1bf
+hi! NvimTreeGitNew           guifg=#a3b1bf
+hi! NvimTreeGitDeleted       guifg=#a3b1bf
 
 " }}}
 
@@ -119,7 +142,7 @@ let s:bg2 = "#232930"
 let s:fg0 = "#D3D6D9"
 let s:fg1 = "#848C95"
 let s:fg2 = "#5C6773"
-let s:alt = "#FF7733"
+let s:alt = "#dabaff"
 
 let s:p = {'normal': {}, 'inactive': {}, 'tabline': {}}
 
@@ -138,7 +161,7 @@ let s:p.inactive.right  = [ [ s:bg2, s:bg0 ], [ s:bg2, s:bg0 ] ]
 let s:p.tabline.left    = [ [ s:fg0, s:bg0 ] ]
 let s:p.tabline.tabsel  = [ [ s:bg0, s:alt ] ]
 let s:p.tabline.middle  = [ [ s:bg2, s:bg0 ] ]
-let s:p.tabline.right   = [ [ s:bg1, s:fg2 ] ]
+let s:p.tabline.right   = [ [ s:fg2, s:bg1 ] ]
 
 
 let g:lightline#colorscheme#my_theme#palette = lightline#colorscheme#fill(s:p)
@@ -189,3 +212,53 @@ let g:lightline.inactive = {
             \ }
 
 " }}}
+
+" NvimTree {{{
+
+nnoremap <C-n> :NvimTreeToggle<CR>
+
+let g:nvim_tree_side = 'left'
+let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
+let g:nvim_tree_gitignore = 1
+
+let g:nvim_tree_width = 25
+
+let g:nvim_tree_show_icons = {
+    \ 'git': 1,
+    \ 'folders': 1,
+    \ 'files': 1,
+    \ 'folder_arrows': 0,
+    \ }
+
+let g:nvim_tree_icons = {
+    \ 'default': '',
+    \ 'symlink': '',
+    \ 'git': {
+    \   'unstaged': "",
+    \   'staged': "",
+    \   'unmerged': "",
+    \   'renamed': "",
+    \   'untracked': "",
+    \   'deleted': "",
+    \   'ignored': ""
+    \   },
+    \ 'folder': {
+    \   'arrow_open': "",
+    \   'arrow_closed': "",
+    \   'default': "",
+    \   'open': "",
+    \   'empty': "",
+    \   'empty_open': "",
+    \   'symlink': "",
+    \   'symlink_open': "",
+    \   },
+    \   'lsp': {
+    \     'hint': "",
+    \     'info': "",
+    \     'warning': "",
+    \     'error': "",
+    \   }
+    \ }
+
+" }}}
+
