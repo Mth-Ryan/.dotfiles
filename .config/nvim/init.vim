@@ -23,7 +23,9 @@ set encoding=utf-8
 
 " Plugins {{{
 
-call plug#begin('~/.config/nvim/plugged')
+let s:pluginsPath = '~/.config/nvim/plugged'
+
+call plug#begin(s:pluginsPath)
 
 "Visual
 Plug 'arzg/vim-colors-xcode'  "colors
@@ -36,6 +38,8 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 "Languages
 Plug 'fatih/vim-go'           "Go
@@ -128,6 +132,14 @@ let g:go_highlight_variable_declarations  = 1
 au FileType rust nnoremap <F5> :Cargo build<CR>
 au FileType rust nnoremap <F6> :Cargo run<CR>
 
+
+" }}}
+
+" Snippets {{{
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " }}}
 
