@@ -40,11 +40,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'neovim/nvim-lspconfig'
 
 "Languages
-Plug 'fatih/vim-go'           "Go
-Plug 'keith/swift.vim'        "Swift
-Plug 'rust-lang/rust.vim'     "Rust
+Plug 'fatih/vim-go'
+Plug 'keith/swift.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'ionide/Ionide-vim', {
+      \ 'do':  'make fsautocomplete',
+      \}
 
 call plug#end()
 
@@ -132,6 +136,11 @@ let g:go_highlight_variable_declarations  = 1
 au FileType rust nnoremap <F5> :Cargo build<CR>
 au FileType rust nnoremap <F6> :Cargo run<CR>
 
+" F#
+let g:fsharp#fsi_keymap = "custom"
+let g:fsharp#fsi_keymap_send   = "<C-e>"
+let g:fsharp#fsi_keymap_toggle = "<C-@>"
+au FileType rust nnoremap <F6> :FsiShow<CR>
 
 " }}}
 
