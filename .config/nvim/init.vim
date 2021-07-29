@@ -28,7 +28,7 @@ let s:pluginsPath = '~/.config/nvim/plugged'
 call plug#begin(s:pluginsPath)
 
 "Visual
-Plug 'arzg/vim-colors-xcode'  "colors
+Plug 'arcticicestudio/nord-vim'  "colors
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -58,36 +58,36 @@ filetype plugin indent on
 
 " Colors {{{
 
-colorscheme xcodedark
+colorscheme nord
 
 " Terminal Background color: #181B20
 
-hi! Normal      guibg=NONE ctermbg=NONE
-hi! NonText     guibg=NONE ctermbg=NONE
-hi! EndOfBuffer guibg=NONE ctermbg=NONE
-hi! Folded      guibg=NONE ctermbg=NONE
-hi! Statement     gui=NONE   cterm=NONE
+hi! Normal      guibg=NONE
+hi! NonText     guibg=NONE guifg=#191F25
+hi! EndOfBuffer guibg=NONE guifg=#191F25
+hi! Folded      guibg=NONE
+hi! Statement     gui=NONE
 hi! foldcolumn  guibg=NONE
-hi! VertSplit   guibg=NONE guifg=#53606e
+hi! VertSplit   guibg=NONE guifg=#232930
 
-hi! NvimTreeRootFolder       guifg=#53606e
-hi! NvimTreeSymlink          guifg=#a3b1bf
-hi! NvimTreeFolderName       guifg=#a3b1bf
-hi! NvimTreeFolderIcon       guifg=#a3b1bf
-hi! NvimTreeEmptyFolderName  guifg=#a3b1bf
-hi! NvimTreeOpenedFolderName guifg=#a3b1bf
-hi! NvimTreeExecFile         guifg=#dabaff
-hi! NvimTreeOpenedFile       guifg=#a3b1bf
-hi! NvimTreeSpecialFile      guifg=#a3b1bf
-hi! NvimTreeImageFile        guifg=#a3b1bf
-hi! NvimTreeMarkdownFile     guifg=#a3b1bf
-hi! NvimTreeIndentMarker     guifg=#a3b1bf
-hi! NvimTreeGitDirty         guifg=#a3b1bf
-hi! NvimTreeGitStaged        guifg=#a3b1bf
-hi! NvimTreeGitMerge         guifg=#a3b1bf
-hi! NvimTreeGitRenamed       guifg=#a3b1bf
-hi! NvimTreeGitNew           guifg=#a3b1bf
-hi! NvimTreeGitDeleted       guifg=#a3b1bf
+hi! NvimTreeRootFolder       guifg=#81A1C1
+hi! NvimTreeSymlink          guifg=#4d5566
+hi! NvimTreeFolderName       guifg=#4d5566
+hi! NvimTreeFolderIcon       guifg=#4d5566
+hi! NvimTreeEmptyFolderName  guifg=#4d5566
+hi! NvimTreeOpenedFolderName guifg=#4d5566
+hi! NvimTreeOpenedFile       guifg=#4d5566
+hi! NvimTreeSpecialFile      guifg=#4d5566
+hi! NvimTreeImageFile        guifg=#4d5566
+hi! NvimTreeMarkdownFile     guifg=#4d5566
+hi! NvimTreeIndentMarker     guifg=#4d5566
+hi! NvimTreeGitDirty         guifg=#4d5566
+hi! NvimTreeGitStaged        guifg=#4d5566
+hi! NvimTreeGitMerge         guifg=#4d5566
+hi! NvimTreeGitRenamed       guifg=#4d5566
+hi! NvimTreeGitNew           guifg=#4d5566
+hi! NvimTreeGitDeleted       guifg=#4d5566
+hi! NvimTreeExecFile         guifg=#4d5566
 
 " }}}
 
@@ -140,7 +140,7 @@ au FileType rust nnoremap <F6> :Cargo run<CR>
 let g:fsharp#fsi_keymap = "custom"
 let g:fsharp#fsi_keymap_send   = "<C-e>"
 let g:fsharp#fsi_keymap_toggle = "<C-@>"
-au FileType rust nnoremap <F6> :FsiShow<CR>
+au FileType fsharp nnoremap <F6> :FsiShow<CR>
 
 " }}}
 
@@ -154,6 +154,8 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " LightLine {{{
 
+set showtabline=2
+
 let g:lightline = {}
 
 " Theme
@@ -163,7 +165,7 @@ let s:bg2 = "#232930"
 let s:fg0 = "#D3D6D9"
 let s:fg1 = "#848C95"
 let s:fg2 = "#5C6773"
-let s:alt = "#dabaff"
+let s:alt = "#88C0D0"
 
 let s:p = {'normal': {}, 'inactive': {}, 'tabline': {}}
 
@@ -214,6 +216,7 @@ let g:lightline.component_function = {
             \ }
 
 " Geral Config
+
 let g:lightline.colorscheme = "my_theme"
 
 let g:lightline.separator    = { 'left': '', 'right': '' }
