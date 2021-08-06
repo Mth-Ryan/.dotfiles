@@ -28,7 +28,7 @@ let s:pluginsPath = '~/.config/nvim/plugged'
 call plug#begin(s:pluginsPath)
 
 "Visual
-Plug 'arcticicestudio/nord-vim'  "colors
+Plug 'Mth-Ryan/yat'  "colors
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 Plug 'kyazdani42/nvim-web-devicons'
