@@ -32,19 +32,20 @@ Plug 'arcticicestudio/nord-vim'  "colors
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'Yggdroot/indentLine'
 
 "Utility
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 
 "Languages
 Plug 'fatih/vim-go'
-Plug 'keith/swift.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'ionide/Ionide-vim', {
       \ 'do':  'make fsautocomplete',
@@ -58,17 +59,7 @@ filetype plugin indent on
 
 " Colors {{{
 
-colorscheme nord
-
-" Terminal Background color: #181B20
-
-hi! Normal      guibg=NONE
-hi! NonText     guibg=NONE guifg=#191F25
-hi! EndOfBuffer guibg=NONE guifg=#191F25
-hi! Folded      guibg=NONE
-hi! Statement     gui=NONE
-hi! foldcolumn  guibg=NONE
-hi! VertSplit   guibg=NONE guifg=#232930
+colorscheme yat
 
 hi! NvimTreeRootFolder       guifg=#81A1C1
 hi! NvimTreeSymlink          guifg=#4d5566
@@ -96,7 +87,12 @@ hi! NvimTreeExecFile         guifg=#4d5566
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
-  ignore_install = { "rust", "go", "swift" },
+  ignore_install = { 
+      "rust",
+      "go",
+      "swift",
+      "html"
+      },
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
@@ -106,7 +102,18 @@ EOF
 
 " }}} 
 
+" Indent Guides {{{
+
+let g:indentLine_enabled = 0
+let g:indentLine_char = '┊'
+let g:indentLine_first_char = '┊'
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_color_gui = '#303036'
+
+" }}}
+
 " Languages {{{
+
 
 " VimScript
 au FileType vim setlocal foldmethod=marker
@@ -135,6 +142,7 @@ let g:go_highlight_variable_declarations  = 1
 " Rust
 au FileType rust nnoremap <F5> :Cargo build<CR>
 au FileType rust nnoremap <F6> :Cargo run<CR>
+au FileType rust :IndentLinesEnable
 
 " F#
 let g:fsharp#fsi_keymap = "custom"
@@ -142,30 +150,83 @@ let g:fsharp#fsi_keymap_send   = "<C-e>"
 let g:fsharp#fsi_keymap_toggle = "<C-@>"
 au FileType fsharp nnoremap <F6> :FsiShow<CR>
 
+" C#
+au FileType cs :IndentLinesEnable
+
+" Python
+au FileType python :IndentLinesEnable
+
 " }}}
 
-" Snippets {{{
+" LSP Config {{{
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+lua << EOF
+
+local lspconfig = require'lspconfig'
+
+local home = os.getenv("HOME")
+local pid = vim.fn.getpid()
+
+local omnisharp_bin = home .. "/.local/share/omnisharp/run"
+
+-- C#
+lspconfig.omnisharp.setup {
+    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
+}
+
+-- F#
+-- Ionide-vim auto setup
+
+-- Python
+lspconfig.pyright.setup{}
+
+-- Go
+lspconfig.gopls.setup{}
+
+-- Rust
+lspconfig.rust_analyzer.setup {
+    cmd = { "rustup", "run", "nightly", "rust-analyzer" }
+}
+
+-- C/C++
+lspconfig.ccls.setup {
+  init_options = {
+    compilationDatabaseDirectory = "/tmp";
+    index = { threads = 0; };
+    clang = {
+      excludeArgs = { "-frounding-math"} ;
+    };
+  }
+}
+
+EOF
+
+autocmd BufEnter * lua require'completion'.on_attach()
+
+imap <silent> <C-Space> <Plug>(completion_trigger)
+
+set completeopt=menuone,noinsert,noselect
+
+set shortmess+=c
+
+let g:completion_enable_snippet = 'UltiSnips'
+let g:UltiSnipsJumpForwardTrigger  = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " }}}
 
 " LightLine {{{
 
-set showtabline=2
-
 let g:lightline = {}
 
 " Theme
-let s:bg0 = "#181B20"
-let s:bg1 = "#191F25"
-let s:bg2 = "#232930"
-let s:fg0 = "#D3D6D9"
-let s:fg1 = "#848C95"
-let s:fg2 = "#5C6773"
-let s:alt = "#88C0D0"
+let s:bg0 = "#0B0C0E"
+let s:bg1 = "#151518"
+let s:bg2 = "#222226"
+let s:fg0 = "#D4D2CF"
+let s:fg1 = "#818284"
+let s:fg2 = "#65676a"
+let s:alt = "#fd9149"
 
 let s:p = {'normal': {}, 'inactive': {}, 'tabline': {}}
 
