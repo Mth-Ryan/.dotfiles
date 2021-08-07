@@ -30,7 +30,7 @@ call plug#begin(s:pluginsPath)
 "Visual
 Plug 'Mth-Ryan/yat'  "colors
 Plug 'itchyny/lightline.vim'
-Plug 'ap/vim-css-color'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'Yggdroot/indentLine'
@@ -61,6 +61,19 @@ filetype plugin indent on
 
 colorscheme yat
 
+lua << EOF
+
+require 'colorizer'.setup(
+    {'*';},
+    {
+        RRGGBBAA = true;
+        rgb_fn = true;
+        hsl_fn = true;
+    }
+)
+
+EOF
+
 hi! NvimTreeRootFolder       guifg=#81A1C1
 hi! NvimTreeSymlink          guifg=#4d5566
 hi! NvimTreeFolderName       guifg=#4d5566
@@ -84,19 +97,18 @@ hi! NvimTreeExecFile         guifg=#4d5566
 
 " TreeSitter {{{
 
-lua <<EOF
+lua << EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  ignore_install = { 
-      "rust",
-      "go",
-      "swift",
-      "html"
-      },
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
+    ensure_installed = "maintained",
+    ignore_install = { 
+        "rust",
+        "go",
+        "html"
+    },
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
 }
 EOF
 
@@ -346,4 +358,3 @@ let g:nvim_tree_icons = {
     \ }
 
 " }}}
-
