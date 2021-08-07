@@ -1,4 +1,8 @@
+wget
 build-essential
+apt-transport-https
+software-properties-common
 curl
-neovim
 xclip
+zsh
+git
