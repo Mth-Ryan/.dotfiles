@@ -8,7 +8,10 @@
 # Author:  Mateus Ryan <mthryan@protonmail.com>
 # Licence: MIT
 
-# User Config
+# --- User Config ---
+$DOTFILES = "${env:HOME}/.dotfiles"
+
+# User variables
 
 # Go
 $env:GOPATH = "${env:HOME}/.go"
