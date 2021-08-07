@@ -13,6 +13,9 @@ GRE='\033[0;32m'
 BLU='\033[0;34m'
 NOC='\033[0m'
 
+# Ubuntu version
+UBVERSION=$(cat /etc/lsb-release | grep "RELEASE" | cut -d '=' -f 2)
+
 # System dependencies
 PACKAGES=$(sed ':a;N;$!ba;s/\n/ /g' $DOTFILES/packages)
 
@@ -25,7 +28,7 @@ sudo add-apt-repository ppa:neovim-ppa/unstable -y
 
 echo -e "\n${BLU}[1.2] PowerShell repository${NOC}\n"
 wget -O "/tmp/microsoftrepo.deb" \
-    "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb"
+    "https://packages.microsoft.com/config/ubuntu/$UBVERSION/packages-microsoft-prod.deb"
 sudo dpkg -i "/tmp/microsoftrepo.deb"
 
 echo -e "\n${BLU}[1.3] Installing Neovim and PowerShell${NOC}\n"
