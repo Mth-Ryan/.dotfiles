@@ -9,11 +9,11 @@
 DOTFILES=$1
 
 # Colors
-    GRE='\033[0;32m'
+GRE='\033[0;32m'
 BLU='\033[0;34m'
 NOC='\033[0m'
 
-# Temp directory
+# Temp for .deb packages directory
 $TEMP="/tmp"
 
 # System dependencies
@@ -36,6 +36,13 @@ sudo apt update
 sudo add-apt-repository -y universe
 sudo apt install -y powershell
 sudo apt install -y neovim
+
+echo -e "${BLU}[1.4] Installing Hyper terminal${NOC}\n"
+curl -s "https://api.github.com/repos/vercel/hyper/releases/latest" \
+| grep "browser_download_url.*amd64.deb" \
+| cut -d '"' -f 4 \
+| wget -O "$TEMP/hyper.deb" -i -
+sudo dpkg -i "$TEMP/hyper.deb"
 
 echo -e "\n${GRE}[2] Cloning Oh-my-zsh and Asdf...${NOC}\n"
 
