@@ -13,9 +13,6 @@ GRE='\033[0;32m'
 BLU='\033[0;34m'
 NOC='\033[0m'
 
-# Temp for .deb packages directory
-$TEMP="/tmp"
-
 # System dependencies
 PACKAGES=$(sed ':a;N;$!ba;s/\n/ /g' $DOTFILES/packages)
 
@@ -23,26 +20,26 @@ echo -e "${GRE}[1] Installing System the dependencies...${NOC}\n"
 sudo apt update
 sudo apt install -y $PACKAGES
 
-echo -e "${BLU}[1.1] Neovim Unstable PPA${NOC}\n"
+echo -e "\n${BLU}[1.1] Neovim Unstable PPA${NOC}\n"
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 
-echo -e "${BLU}[1.2] PowerShell repository${NOC}\n"
-wget -O "$TEMP/microsoftrepo.deb" \
+echo -e "\n${BLU}[1.2] PowerShell repository${NOC}\n"
+wget -O "/tmp/microsoftrepo.deb" \
     "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb"
-sudo dpkg -i "$TEMP/microsoftrepo.deb"
+sudo dpkg -i "/tmp/microsoftrepo.deb"
 
-echo -e "${BLU}[1.3] Installing Neovim and PowerShell${NOC}\n"
+echo -e "\n${BLU}[1.3] Installing Neovim and PowerShell${NOC}\n"
 sudo apt update
 sudo add-apt-repository -y universe
 sudo apt install -y powershell
 sudo apt install -y neovim
 
-echo -e "${BLU}[1.4] Installing Hyper terminal${NOC}\n"
+echo -e "\n${BLU}[1.4] Installing Hyper terminal${NOC}\n"
 curl -s "https://api.github.com/repos/vercel/hyper/releases/latest" \
 | grep "browser_download_url.*amd64.deb" \
 | cut -d '"' -f 4 \
-| wget -O "$TEMP/hyper.deb" -i -
-sudo dpkg -i "$TEMP/hyper.deb"
+| wget -O "/tmp/hyper.deb" -i -
+sudo dpkg -i "/tmp/hyper.deb"
 
 echo -e "\n${GRE}[2] Cloning Oh-my-zsh and Asdf...${NOC}\n"
 
