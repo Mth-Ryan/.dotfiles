@@ -34,6 +34,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'yamatsum/nvim-cursorline'
 
 "Utility
 Plug 'jiangmiao/auto-pairs'
@@ -98,6 +99,8 @@ require("indent_blankline").setup {
     char = "┊",
     buftype_exclude = {"terminal"}
 }
+
+-- Cursorline
 
 EOF
 
@@ -197,13 +200,13 @@ lspconfig.rust_analyzer.setup {
 
 -- C/C++
 lspconfig.ccls.setup {
-  init_options = {
-    compilationDatabaseDirectory = "/tmp";
-    index = { threads = 0; };
-    clang = {
-      excludeArgs = { "-frounding-math"} ;
-    };
-  }
+    init_options = {
+        compilationDatabaseDirectory = "/tmp";
+        index = { threads = 0; };
+        clang = {
+            excludeArgs = { "-frounding-math"} ;
+        };
+    }
 }
 
 -- Nvim-lsputils
