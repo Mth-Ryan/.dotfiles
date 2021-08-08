@@ -59,11 +59,14 @@ filetype plugin indent on
 
 " }}}
 
-" Colors {{{
+" Visual {{{
 
+" ColorScheme
 colorscheme yat
 
 lua << EOF
+
+-- Colorizer
 
 require 'colorizer'.setup(
     {'*';},
@@ -74,7 +77,32 @@ require 'colorizer'.setup(
     }
 )
 
+-- TreeSitter
+
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained",
+    ignore_install = { 
+        "rust",
+        "go",
+        "html"
+    },
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
+}
+
+-- Indent Guides 
+
+require("indent_blankline").setup {
+    char = "┊",
+    buftype_exclude = {"terminal"}
+}
+
 EOF
+
+" Color Ajust --TEMP--
+" TODO: Add NvimTree colors on Yat
 
 hi! NvimTreeRootFolder       guifg=#81A1C1
 hi! NvimTreeSymlink          guifg=#4d5566
@@ -94,38 +122,6 @@ hi! NvimTreeGitRenamed       guifg=#4d5566
 hi! NvimTreeGitNew           guifg=#4d5566
 hi! NvimTreeGitDeleted       guifg=#4d5566
 hi! NvimTreeExecFile         guifg=#4d5566
-
-" }}}
-
-" TreeSitter {{{
-
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained",
-    ignore_install = { 
-        "rust",
-        "go",
-        "html"
-    },
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-}
-EOF
-
-" }}} 
-
-" Indent Guides {{{
-
-lua << EOF
-
-require("indent_blankline").setup {
-    char = "┊",
-    buftype_exclude = {"terminal"}
-}
-
-EOF
 
 " }}}
 
