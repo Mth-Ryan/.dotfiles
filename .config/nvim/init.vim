@@ -3,7 +3,7 @@
 " |  \| |/ _ \/ _ \ \ / / | '_ ` _ \ 
 " | |\  |  __/ (_) \ V /| | | | | | |
 " |_| \_|\___|\___/ \_/ |_|_| |_| |_|
-                                   
+
 " File:    init.vim
 " Author:  Mateus Ryan <mthryan@protonmail.com>
 " Licence: MIT
@@ -33,7 +33,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 "Utility
 Plug 'jiangmiao/auto-pairs'
@@ -118,11 +118,14 @@ EOF
 
 " Indent Guides {{{
 
-let g:indentLine_enabled = 0
-let g:indentLine_char = '┊'
-let g:indentLine_first_char = '┊'
-let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_color_gui = '#303036'
+lua << EOF
+
+require("indent_blankline").setup {
+    char = "┊",
+    buftype_exclude = {"terminal"}
+}
+
+EOF
 
 " }}}
 
@@ -163,12 +166,6 @@ let g:fsharp#fsi_keymap = "custom"
 let g:fsharp#fsi_keymap_send   = "<C-e>"
 let g:fsharp#fsi_keymap_toggle = "<C-@>"
 au FileType fsharp nnoremap <F6> :FsiShow<CR>
-
-" C#
-au FileType cs :IndentLinesEnable
-
-" Python
-au FileType python :IndentLinesEnable
 
 " }}}
 
