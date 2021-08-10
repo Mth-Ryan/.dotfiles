@@ -42,7 +42,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'kyazdani42/nvim-tree.lua'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'RishabhRD/popfix'
@@ -108,28 +107,6 @@ require("status-line")
 require("buffer-line")
 
 EOF
-
-" Color Ajust --TEMP--
-" TODO: Add NvimTree colors on Yat
-
-hi! NvimTreeRootFolder       guifg=#81A1C1
-hi! NvimTreeSymlink          guifg=#4d5566
-hi! NvimTreeFolderName       guifg=#4d5566
-hi! NvimTreeFolderIcon       guifg=#4d5566
-hi! NvimTreeEmptyFolderName  guifg=#4d5566
-hi! NvimTreeOpenedFolderName guifg=#4d5566
-hi! NvimTreeOpenedFile       guifg=#4d5566
-hi! NvimTreeSpecialFile      guifg=#4d5566
-hi! NvimTreeImageFile        guifg=#4d5566
-hi! NvimTreeMarkdownFile     guifg=#4d5566
-hi! NvimTreeIndentMarker     guifg=#4d5566
-hi! NvimTreeGitDirty         guifg=#4d5566
-hi! NvimTreeGitStaged        guifg=#4d5566
-hi! NvimTreeGitMerge         guifg=#4d5566
-hi! NvimTreeGitRenamed       guifg=#4d5566
-hi! NvimTreeGitNew           guifg=#4d5566
-hi! NvimTreeGitDeleted       guifg=#4d5566
-hi! NvimTreeExecFile         guifg=#4d5566
 
 " }}}
 
@@ -241,51 +218,3 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " }}}
 
-" NvimTree {{{
-
-nnoremap <C-n> :NvimTreeToggle<CR>
-
-let g:nvim_tree_side = 'right'
-let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
-let g:nvim_tree_gitignore = 1
-
-let g:nvim_tree_width = 25
-
-let g:nvim_tree_show_icons = {
-    \ 'git': 1,
-    \ 'folders': 1,
-    \ 'files': 1,
-    \ 'folder_arrows': 0,
-    \ }
-
-let g:nvim_tree_icons = {
-    \ 'default': '',
-    \ 'symlink': '',
-    \ 'git': {
-    \   'unstaged': "",
-    \   'staged': "",
-    \   'unmerged': "",
-    \   'renamed': "",
-    \   'untracked': "",
-    \   'deleted': "",
-    \   'ignored': ""
-    \   },
-    \ 'folder': {
-    \   'arrow_open': "",
-    \   'arrow_closed': "",
-    \   'default': "",
-    \   'open': "",
-    \   'empty': "",
-    \   'empty_open': "",
-    \   'symlink': "",
-    \   'symlink_open': "",
-    \   },
-    \   'lsp': {
-    \     'hint': "",
-    \     'info': "",
-    \     'warning': "",
-    \     'error': "",
-    \   }
-    \ }
-
-" }}}
