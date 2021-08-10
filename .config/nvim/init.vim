@@ -35,6 +35,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'yamatsum/nvim-cursorline'
 Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
+Plug 'akinsho/nvim-bufferline.lua'
 
 "Utility
 Plug 'jiangmiao/auto-pairs'
@@ -69,7 +70,7 @@ lua << EOF
 
 -- Colorizer
 
-require 'colorizer'.setup(
+require('colorizer').setup(
     {'*';},
     {
         RRGGBBAA = true;
@@ -80,7 +81,7 @@ require 'colorizer'.setup(
 
 -- TreeSitter
 
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
     ensure_installed = "maintained",
     ignore_install = { 
         "rust",
@@ -97,11 +98,14 @@ require'nvim-treesitter.configs'.setup {
 
 require("indent_blankline").setup {
     char = "┊",
-    buftype_exclude = {"terminal"}
+    buftype_exclude = {"terminal"},
 }
 
 -- Galaxy Line
 require("status-line")
+
+-- Buffer Line
+require("buffer-line")
 
 EOF
 
@@ -173,7 +177,7 @@ au FileType fsharp nnoremap <F6> :FsiShow<CR>
 
 lua << EOF
 
-local lspconfig = require'lspconfig'
+local lspconfig = require('lspconfig')
 
 local home = os.getenv("HOME")
 local pid = vim.fn.getpid()
@@ -241,7 +245,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 nnoremap <C-n> :NvimTreeToggle<CR>
 
-let g:nvim_tree_side = 'left'
+let g:nvim_tree_side = 'right'
 let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
 let g:nvim_tree_gitignore = 1
 
