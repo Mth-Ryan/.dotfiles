@@ -14,7 +14,19 @@ BLU='\033[0;34m'
 NOC='\033[0m'
 
 # Ubuntu version
-UBVERSION=$(cat /etc/lsb-release | grep "RELEASE" | cut -d '=' -f 2)
+SYSTEM=$(cat /etc/os-release | grep "^ID=" | cut -d '=' -f 2)
+VERSION=$(cat /etc/lsb-release | grep "RELEASE" | cut -d '=' -f 2)
+
+if [ $SYSTEM = "ubuntu" ]; then
+    UBVERSION=$VERSION
+elif [ $SYSTEM = "elementary" ]; then
+    if [ $VERSION = 6 ]; then
+        UBVERSION=20.04
+    else
+        UBVERSION=18.04
+    fi
+fi
+
 
 # System dependencies
 PACKAGES=$(sed ':a;N;$!ba;s/\n/ /g' $DOTFILES/packages)
@@ -25,7 +37,7 @@ sudo apt install -y $PACKAGES
 
 echo -e "\n${BLU}[1.1] PowerShell repository${NOC}\n"
 wget -O "/tmp/microsoftrepo.deb" \
-    "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb"
+    "https://packages.microsoft.com/config/ubuntu/$UBVERSION/packages-microsoft-prod.deb"
 sudo dpkg -i "/tmp/microsoftrepo.deb"
 
 echo -e "\n${BLU}[1.2] Installing PowerShell${NOC}\n"
