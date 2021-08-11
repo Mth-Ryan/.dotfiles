@@ -10,6 +10,8 @@ local modes = {
     n = 'Normal',
     i = 'Insert',
     c = 'Command',
+    s = 'Select',
+    S = 'Select',
     v = 'Visual',
     V = 'Visual',
     [''] = 'Visual',
@@ -38,7 +40,11 @@ section.left[1] = {
 section.left[2] = {
     Mode = {
         provider = function()
-            return modes[vim.fn.mode()] .. ' '
+            local mode = modes[vim.fn.mode()]
+            if mode then
+                return mode .. ' '
+            end
+            return 'Mode '
         end,
         highlight = {colors.fg, colors.bg},
         separator = '',
