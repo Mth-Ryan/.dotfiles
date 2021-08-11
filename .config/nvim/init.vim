@@ -45,13 +45,17 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 "Languages
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'ionide/Ionide-vim', {
-      \ 'do':  'make fsautocomplete',
-      \}
+    \ 'do':  'make fsautocomplete',
+\}
 
 call plug#end()
 
@@ -117,21 +121,19 @@ lua << EOF
 local remap = vim.api.nvim_set_keymap
 local npairs = require('nvim-autopairs')
 
-npairs.setup{}
-
 _G.MUtils= {}
 
-vim.g.completion_confirm_key = ''
+vim.g.completion_confirm_key = ""
 
 MUtils.completion_confirm=function()
     if vim.fn.pumvisible() ~= 0  then
-        if vim.fn.complete_info()['selected'] ~= -1 then
-            require('completion').confirmCompletion()
-            return npairs.esc('<c-y>')
+        if vim.fn.complete_info()["selected"] ~= -1 then
+            require'completion'.confirmCompletion()
+            return npairs.esc("<c-y>")
         else
             vim.api.nvim_select_popupmenu_item(0 , false , false ,{})
-            require('completion').confirmCompletion()
-            return npairs.esc('<c-n><c-y>')
+            require'completion'.confirmCompletion()
+            return npairs.esc("<c-n><c-y>")
         end
     else
         return npairs.autopairs_cr()
@@ -139,8 +141,41 @@ MUtils.completion_confirm=function()
 end
 
 remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
+npairs.setup{}
+
+-- Telescope
+local actions = require('telescope.actions')
+require('telescope').setup {
+    defaults = {
+        file_sorter = require('telescope.sorters').get_fzy_sorter,
+        prompt_prefix = 'λ ',
+        selection_caret = '❯ ',
+        borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+        colors_devicons = true,
+
+        file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
+        grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
+        qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+
+        mappings = {
+            i = {
+                ['<C-x>'] = false,
+                ['<C-q>'] = actions.send_to_qflist,
+            },
+        },
+    },
+    extensions = {
+        fzy_native = {
+            override_generic_sorter = false,
+            override_file_sorter = true,
+        },
+    },
+}
 
 EOF
+
+" Telescope Keybindings
+nnoremap <C-f> :Telescope find_files theme=get_dropdown<CR>
 
 " }}}
 

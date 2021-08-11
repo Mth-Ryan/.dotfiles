@@ -2,6 +2,7 @@ wget
 build-essential
 apt-transport-https
 software-properties-common
+fzf
 curl
 xclip
 zsh
