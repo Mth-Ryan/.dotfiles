@@ -23,21 +23,17 @@ echo -e "${GRE}[1] Installing System the dependencies...${NOC}\n"
 sudo apt update
 sudo apt install -y $PACKAGES
 
-echo -e "\n${BLU}[1.1] Neovim Unstable PPA${NOC}\n"
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
-
-echo -e "\n${BLU}[1.2] PowerShell repository${NOC}\n"
+echo -e "\n${BLU}[1.1] PowerShell repository${NOC}\n"
 wget -O "/tmp/microsoftrepo.deb" \
-    "https://packages.microsoft.com/config/ubuntu/$UBVERSION/packages-microsoft-prod.deb"
+    "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb"
 sudo dpkg -i "/tmp/microsoftrepo.deb"
 
-echo -e "\n${BLU}[1.3] Installing Neovim and PowerShell${NOC}\n"
+echo -e "\n${BLU}[1.2] Installing PowerShell${NOC}\n"
 sudo apt update
 sudo add-apt-repository -y universe
 sudo apt install -y powershell
-sudo apt install -y neovim
 
-echo -e "\n${BLU}[1.4] Installing Hyper terminal${NOC}\n"
+echo -e "\n${BLU}[1.3] Installing Hyper terminal${NOC}\n"
 curl -s "https://api.github.com/repos/vercel/hyper/releases/latest" \
 | grep "browser_download_url.*amd64.deb" \
 | cut -d '"' -f 4 \
@@ -55,7 +51,6 @@ echo -e "\n${BLU}[2.2] Cloning Zsh syntax highlighting${NOC}\n"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
     ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-
 # Zsh autosuggestions
 echo -e "\n${BLU}[2.3] Cloning Zsh autosuggestions${NOC}\n"
 git clone https://github.com/zsh-users/zsh-autosuggestions \
@@ -67,12 +62,16 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 git -C ~/.asdf checkout \
     "$(git -C ~/.asdf describe --abbrev=0 --tags)"
 
-# Starship Prompt
-echo -e "\n${GRE}[3] Installing Starship Prompt...${NOC}\n"
-sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
-
 # Vim Plug
 echo -e "\n${GRE}[4] Installing Vim Plug...${NOC}\n"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+#Neovim
+echo -e "\n${GRE}[5] Building Neovim...${NOC}\n"
+git clone https://github.com/neovim/neovim /tmp/neovim
+cd /tmp/neovim
+make -j4
+sudo make install
+pip3 install neovim
+cd $DOTFILES

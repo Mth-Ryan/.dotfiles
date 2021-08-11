@@ -26,7 +26,3 @@ source $HOME/.cargo/env
 # Go
 export GOPATH=$HOME/.go
 export GOBIN=$GOPATH/bin
-
-# Starship
-export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
-eval "$(starship init zsh)"
