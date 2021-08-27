@@ -36,6 +36,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'yamatsum/nvim-cursorline'
 Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
 Plug 'akinsho/nvim-bufferline.lua'
+Plug 'frazrepo/vim-rainbow'
 
 "Utility
 Plug 'windwp/nvim-autopairs'
@@ -101,6 +102,7 @@ require('nvim-treesitter.configs').setup {
 require("indent_blankline").setup {
     char = "┊",
     buftype_exclude = {"terminal"},
+    filetype_exclude = {'scheme', 'lisp'},
 }
 
 -- Galaxy Line
@@ -110,6 +112,14 @@ require("status-line")
 require("buffer-line")
 
 EOF
+
+au FileType scheme,lisp call rainbow#load()
+let g:rainbow_guifgs = ['#D4D2CF',
+                       \'#BF5151',
+                       \'#fd9149',
+                       \'#f0c674',
+                       \'#bfd066',
+                       \'#9BC5AF']
 
 " }}}
 
