@@ -33,7 +33,6 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'yamatsum/nvim-cursorline'
 Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
 Plug 'akinsho/nvim-bufferline.lua'
 Plug 'frazrepo/vim-rainbow'
@@ -68,6 +67,9 @@ filetype plugin indent on
 
 " ColorScheme
 colorscheme yat
+hi Normal      guibg=NONE
+hi NonText     guibg=NONE
+hi EndOfBuffer guibg=NONE
 
 lua << EOF
 
@@ -86,11 +88,6 @@ require('colorizer').setup(
 
 require('nvim-treesitter.configs').setup {
     ensure_installed = "maintained",
-    ignore_install = { 
-        "rust",
-        "go",
-        "html"
-    },
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
@@ -199,27 +196,9 @@ au FileType vim setlocal foldmethod=marker
 au FileType go nnoremap <F5> :GoBuild<CR>
 au FileType go nnoremap <F6> :GoRun<CR>
 
-let g:go_highlight_array_whitespace_error = 0
-let g:go_highlight_build_greenraints      = 1
-let g:go_highlight_chan_whitespace_error  = 0
-let g:go_highlight_extra_types            = 1
-let g:go_highlight_fields                 = 1
-let g:go_highlight_format_strings         = 1
-let g:go_highlight_function_calls         = 1
-let g:go_highlight_function_parameters    = 1
-let g:go_highlight_functions              = 1
-let g:go_highlight_generate_tags          = 1
-let g:go_highlight_operators              = 1
-let g:go_highlight_space_tab_error        = 0
-let g:go_highlight_string_spellcheck      = 1
-let g:go_highlight_types                  = 1
-let g:go_highlight_variable_assignments   = 1
-let g:go_highlight_variable_declarations  = 1
-
 " Rust
 au FileType rust nnoremap <F5> :Cargo build<CR>
 au FileType rust nnoremap <F6> :Cargo run<CR>
-au FileType rust :IndentLinesEnable
 
 " F#
 let g:fsharp#fsi_keymap = "custom"
@@ -296,4 +275,3 @@ let g:UltiSnipsJumpForwardTrigger  = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " }}}
-

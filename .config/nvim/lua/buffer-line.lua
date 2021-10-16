@@ -1,10 +1,10 @@
 local colors = {
-    bg     = '#0B0C0E',
+    bg     = '#1B1C24',
     fg     = '#D4D2CF',
     fg2    = '#c3c1be',
-    bg2    = '#151518',
-    bg3    = '#222226',
-    bg4    = '#303036',
+    bg2    = '#111116',
+    bg3    = '#262833',
+    bg4    = '#32343F',
     cyan   = '#9BC5AF',
     green  = '#bfd066',
 }
@@ -18,7 +18,7 @@ require("bufferline").setup {
         indicator_icon = '▎',
         buffer_close_icon = 'x',
         modified_icon = '●',
-        separator_style = { '', '' },
+        separator_style = { '', '' },
         offsets = {
             {
                 filetype = "NvimTree",
