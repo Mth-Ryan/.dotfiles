@@ -1,0 +1,100 @@
+/*-*- mode: css; -*-*/
+
+configuration {
+	modi: "window,run,drun";
+	display-drun: "";
+}
+
+* {
+    background: #1B1C24;
+	background-alt: #262833;
+    foreground: #ffffff;
+    foreground-alt: #cccccc;
+    font: "SF Pro Display 10";
+}
+
+window {
+	transparency: "real";
+    background-color: @background-alt;
+    border-color: @background-alt;
+    border-radius: 8;
+	width: 650px;
+}
+
+prompt {
+	enabled: true;
+	background-color: @background-alt;
+	text-color: @foreground;
+	horizontal-align: 0.5;
+    vertical-align: 0.5;
+	padding: 0px 10px 0px 10px;
+    font: "SF Pro Display 20";
+}
+
+entry {
+	background-color: @background-alt;
+	text-color: @foreground;
+	placeholder-color: @foreground-alt;
+    vertical-align: 0.5;
+	placeholder: "Search";
+}
+
+inputbar {
+	children: [ prompt, entry ];
+	background-color: @background-alt;
+	padding: 5px;
+	margin: 15px 15px 15px 15px;
+	border-radius: 5px;
+}
+
+listview {
+	background-color: @background;
+	margin: 0px 15px 15px 15px;
+	lines: 3;
+	columns: 4;
+	cycle: false;
+	dynamic: true;
+	layout: vertical;
+}
+
+mainbox {
+	children: [ inputbar, listview ];
+	background-color: @background;
+}
+
+element {
+	background-color: @background;
+	text-color: @foreground;
+	padding: 20px 8px 20px 8px;
+	orientation: vertical;
+}
+
+element-text {
+	background-color: @background;
+	text-color: @foreground;
+	expand: true;
+	horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+element-icon {
+	background-color: @background;
+	margin: 0px 0px 4px 0px;
+	horizontal-align: 0.5;
+    vertical-align: 0.5;
+	size: 60px;
+}
+
+element selected {
+	background-color: @background-alt;
+	border-radius: 5px;
+}
+
+element-text selected {
+	background-color: @background-alt;
+}
+
+element-icon selected {
+	background-color: @background-alt;
+	margin: 0px 7px 0px 0px;
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   viewBox="-10 0 760.57703 1000"
+   id="svg4"
+   sodipodi:docname="battery.svg"
+   width="760.57703"
+   height="1000"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:export-filename="/home/black/.config/qtile/icons/battery.png"
+   inkscape:export-xdpi="1.92"
+   inkscape:export-ydpi="1.92"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.39103005"
+     inkscape:cx="239.11206"
+     inkscape:cy="459.044"
+     inkscape:window-width="1574"
+     inkscape:window-height="854"
+     inkscape:window-x="1379"
+     inkscape:window-y="33"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     fill="currentColor"
+     d="M 509.17067,229.20674 H 462.89663 V 175 H 297.63221 v 54.20674 h -46.27404 q -15.20433,1.3221 -25.78125,11.5685 Q 215,251.02163 215,266.88703 v 421.7548 q 0,15.20433 10.24639,25.78125 Q 235.49279,725 251.35817,725 h 257.8125 q 15.20433,0 25.78125,-10.24639 10.57693,-10.2464 10.57693,-26.11178 v -421.7548 q 0,-15.20433 -10.57693,-25.78126 -10.57692,-10.57693 -25.78125,-11.89903 z"
+     id="path2"
+     style="fill:#ffffff;stroke-width:1" />
+</svg>

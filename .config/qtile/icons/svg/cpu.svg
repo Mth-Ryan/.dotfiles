@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   viewBox="-10 0 1000 1000"
+   id="svg854"
+   sodipodi:docname="cpu.svg"
+   width="1000"
+   height="1000"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:export-filename="/home/black/.config/qtile/icons/cpu.png"
+   inkscape:export-xdpi="1.92"
+   inkscape:export-ydpi="1.92"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs858" />
+  <sodipodi:namedview
+     id="namedview856"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.3195"
+     inkscape:cx="142.41002"
+     inkscape:cy="827.85603"
+     inkscape:window-width="1574"
+     inkscape:window-height="854"
+     inkscape:window-x="1379"
+     inkscape:window-y="33"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg854" />
+  <path
+     fill="currentColor"
+     d="M 657.2,617.2 H 322.8 V 282.8 H 657.2 Z M 790,417.2 V 350 h -67.20001 v -67.2 q 0,-28 -18.79999,-46.8 -18.8,-18.79999 -46.8,-18.79999 H 590 V 150 h -67.2 v 67.20001 H 457.2 V 150 H 390 v 67.20001 h -67.2 q -28,0 -46.8,18.79999 -18.8,18.8 -18.8,46.8 V 350 H 190 v 67.2 h 67.2 v 65.6 H 190 V 550 h 67.2 v 67.2 q 0,28 18.8,46.8 18.8,18.79999 46.8,18.79999 H 390 v 67.19999 h 67.2 v -67.19999 h 65.6 v 67.19999 H 590 v -67.19999 h 67.2 q 28,0 46.8,-18.79999 18.79999,-18.8 18.79999,-46.8 V 550 H 790 v -67.2 h -67.20001 v -65.6 z m -267.2,65.6 h -65.6 v -65.6 h 65.6 z M 590,350 H 390 v 200 h 200 z"
+     id="path852"
+     style="fill:#ffffff;stroke-width:0.999997" />
+</svg>

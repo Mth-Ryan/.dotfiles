@@ -1,0 +1,21 @@
+window:
+  padding:
+    x: 20
+    y: 20
+
+font:
+  normal:
+    family: 'SF Mono'
+    style: Regular
+ 
+  italic:
+    family: 'Victor Mono SemiBold'
+    style: Italic
+  
+  size: 11.0
+
+colors:
+  primary:
+    background: '0x1B1C24'
+
+background_opacity: 0.75

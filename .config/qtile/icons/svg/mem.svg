@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   viewBox="-10 0 1098.204 1000"
+   id="svg1397"
+   sodipodi:docname="mem.svg"
+   width="1098.204"
+   height="1000"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:export-filename="/home/black/.config/qtile/icons/mem.png"
+   inkscape:export-xdpi="1.92"
+   inkscape:export-ydpi="1.92"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1401" />
+  <sodipodi:namedview
+     id="namedview1399"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.2765"
+     inkscape:cx="113.92405"
+     inkscape:cy="674.50271"
+     inkscape:window-width="1574"
+     inkscape:window-height="854"
+     inkscape:window-x="1379"
+     inkscape:window-y="33"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1397" />
+  <path
+     fill="currentColor"
+     d="m 302.27545,150 h 449.10179 v 38.62276 h 112.27545 v 73.65269 H 751.37724 v 75.4491 h 112.27545 v 75.4491 H 751.37724 v 73.6527 h 112.27545 v 75.44909 H 751.37724 v 75.44911 h 112.27545 v 73.65269 H 751.37724 V 750 H 302.27545 V 711.37724 H 190 V 637.72455 H 302.27545 V 562.27544 H 190 v -75.44909 h 112.27545 v -73.6527 H 190 v -75.4491 h 112.27545 v -75.4491 H 190 V 188.62276 H 302.27545 Z M 490,562.27544 v 112.27545 h 36.82635 V 562.27544 Z m 73.6527,0 v 112.27545 h 38.62274 V 562.27544 Z m 75.44909,0 v 112.27545 h 36.82635 V 562.27544 Z"
+     id="path1395"
+     style="fill:#ffffff;stroke-width:0.999997" />
+</svg>

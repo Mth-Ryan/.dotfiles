@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   viewBox="-10 0 945.09802 1000"
+   id="svg1193"
+   sodipodi:docname="date.svg"
+   width="945.09802"
+   height="1000"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:export-filename="/home/black/.config/qtile/icons/date.png"
+   inkscape:export-xdpi="1.92"
+   inkscape:export-ydpi="1.92"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1197" />
+  <sodipodi:namedview
+     id="namedview1195"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.2765"
+     inkscape:cx="77.757685"
+     inkscape:cy="562.38698"
+     inkscape:window-width="1574"
+     inkscape:window-height="854"
+     inkscape:window-x="1379"
+     inkscape:window-y="33"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1193" />
+  <path
+     fill="currentColor"
+     d="m 516.79721,476.79738 h 41.17644 v 76.47059 l 66.01304,39.86928 -20.26142,33.98693 -86.92806,-49.6732 z M 625.29388,341.50327 H 244.90193 v 298.69282 h 126.14373 q -17.64705,-37.25491 -17.64705,-81.69937 2.61437,-80.39215 56.20912,-133.98692 53.59473,-53.59477 133.98685,-56.20915 44.44442,0 81.6993,17.64706 z M 244.90193,695.09804 q -24.18299,0 -39.54245,-16.01307 Q 190,663.0719 190,640.19609 V 259.80392 q 0,-24.18301 15.35948,-39.54248 15.35945,-15.35948 39.54245,-15.35948 h 26.79738 V 150 h 54.90193 v 54.90196 H 543.59458 V 150 h 54.90193 v 54.90196 h 26.79737 q 22.87581,0 38.88887,16.01307 16.01306,16.01308 16.01306,38.88889 v 166.01307 q 25.49019,25.4902 39.54246,59.80392 14.05229,34.31373 15.35948,72.87581 -2.61438,81.69936 -56.20913,135.29413 Q 625.29388,747.38563 543.59458,750 505.03251,748.69281 470.7188,734.64053 436.4051,720.58824 410.91491,695.09804 Z M 543.59458,427.12418 q -56.20912,1.30719 -93.13721,38.23529 -36.92808,36.92811 -38.23527,93.13725 1.30719,56.20917 38.23527,93.79087 36.92809,37.58169 93.13721,38.88887 56.20913,-1.30718 93.7908,-38.88887 37.58168,-37.5817 38.88886,-93.79087 -1.30718,-56.20914 -38.88886,-93.13725 -37.58167,-36.92811 -93.7908,-38.23529 z"
+     id="path1191"
+     style="fill:#ffffff;stroke-width:0.999997"
+     inkscape:export-filename="/home/black/.config/qtile/icons/date.png"
+     inkscape:export-xdpi="3.2"
+     inkscape:export-ydpi="3.2" />
+</svg>
