@@ -2,11 +2,11 @@
 
 # File: symlinks.sh
 # Author: Mateus Ryan <mthryan@protonmailcom>
-# Args: $1 Dotfiles folder
 # Licence: MIT
 
 # Dotfiles folder
-DOTFILES=$1
+BASEDIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+DOTFILES=$BASEDIR
 
 # Colors
 GRE="\033[0;32m"
