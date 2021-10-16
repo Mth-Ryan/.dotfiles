@@ -17,9 +17,6 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 source $HOME/.aliases
 
-# Asdf
-source $HOME/.asdf/asdf.sh
-
 # Rustup
 source $HOME/.cargo/env
 
