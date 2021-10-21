@@ -97,7 +97,7 @@ require('nvim-treesitter.configs').setup {
 -- Indent Guides 
 
 require("indent_blankline").setup {
-    char = "┊",
+    char = "┆",
     buftype_exclude = {"terminal"},
     filetype_exclude = {'scheme', 'lisp'},
 }
