@@ -17,5 +17,23 @@ font:
 colors:
   primary:
     background: '0x1B1C24'
+  normal:
+    black:   '0x1B1C24'
+    red:     '0xD93861'
+    green:   '0xC2D076'
+    yellow:  '0xFECC86'
+    blue:    '0x679DCB'
+    magenta: '0xA6ADEF'
+    cyan:    '0x60B7A5'
+    white:   '0xC3C1BE'
+  bright:
+    black:   '0x40414D'
+    red:     '0xD93861'
+    green:   '0xC2D076'
+    yellow:  '0xFECC86'
+    blue:    '0x679DCB'
+    magenta: '0xA6ADEF'
+    cyan:    '0x60B7A5'
+    white:   '0xD4D2CF'
 
 background_opacity: 0.75
