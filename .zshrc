@@ -23,3 +23,7 @@ source $HOME/.cargo/env
 # Go
 export GOPATH=$HOME/.go
 export GOBIN=$GOPATH/bin
+
+# less command highlight
+export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
