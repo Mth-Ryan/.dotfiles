@@ -8,7 +8,7 @@ fade_colors = [
 ]
 
 colors = {
-    "prpl": "#A47DB2" 
+    "blue": "#679DCB" 
 }
 
 def init():
@@ -29,8 +29,8 @@ def init():
             disable_drag = True,
             highlight_method = "block",
             background=fade_colors[1],
-            this_current_screen_border = colors["prpl"],
-            this_screen_border = colors["prpl"],
+            this_current_screen_border = colors["blue"],
+            this_screen_border = colors["blue"],
             other_current_screen_border = fade_colors[2],
             other_screen_border = fade_colors[2],
         ),
