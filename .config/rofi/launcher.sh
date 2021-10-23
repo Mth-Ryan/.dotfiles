@@ -2,4 +2,4 @@
 
 rofi -show drun  \
      -show-icons \
-     -theme ~/.config/rofi/theme.rasi
+     -theme ~/.config/rofi/launcher-theme.rasi
