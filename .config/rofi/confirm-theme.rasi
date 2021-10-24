@@ -1,0 +1,71 @@
+/* vim: set syntax=css: */
+
+* {
+    background: #1B1C24;
+	background-alt: #262833;
+    foreground: #ffffff;
+    foreground-alt: #cccccc;
+    font: "SF Pro Display 13";
+}
+
+window {
+	transparency: "real";
+    background-color: @background-alt;
+    border-color: @background-alt;
+    border-radius: 8;
+	width: 200px;
+    location: north east;
+    x-offset: -5;
+    y-offset: 25;
+}
+
+
+listview {
+	background-color: @background;
+	margin: 15px 15px 15px 15px;
+	lines: 2;
+	columns: 1;
+	cycle: false;
+	dynamic: true;
+	layout: vertical;
+}
+
+mainbox {
+	children: [ listview ];
+	background-color: @background;
+}
+
+element {
+	background-color: @background;
+	text-color: @foreground;
+	padding: 8px 8px 8px 8px;
+}
+
+element-text {
+	background-color: @background;
+	text-color: @foreground;
+	expand: true;
+    vertical-align: 0.5;
+}
+
+element-icon {
+	background-color: @background;
+	margin: 0px 20px 0px 0px;
+	horizontal-align: 0.5;
+    vertical-align: 0.5;
+	size: 30px;
+}
+
+element selected {
+	background-color: @background-alt;
+	border-radius: 5px;
+}
+
+element-text selected {
+	background-color: @background-alt;
+}
+
+element-icon selected {
+	background-color: @background-alt;
+	margin: 0px 7px 0px 0px;
+}

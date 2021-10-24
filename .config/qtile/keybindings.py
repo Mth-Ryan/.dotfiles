@@ -127,7 +127,9 @@ keybindings = [
         "desc": "Shutdown Qtile",
         "mods": [mod, control],
         "key": "q",
-        "function": lazy.shutdown()
+        "function": lazy.spawn(
+            expanduser("~/.config/rofi/powermenu.sh")
+        )
     }, # }}}
 
     # Launchers {{{

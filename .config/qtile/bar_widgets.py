@@ -1,4 +1,5 @@
 from libqtile import widget
+from libqtile import qtile
 from os.path import expanduser
 
 fade_colors = [
@@ -180,5 +181,6 @@ def init():
             background = fade_colors[0],
             scale = False,
             margin_x = 4,
+            mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(expanduser("~/.config/rofi/powermenu.sh"))},
         ),
     ]
