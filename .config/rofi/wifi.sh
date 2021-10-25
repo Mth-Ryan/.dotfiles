@@ -1,15 +1,23 @@
 #! /usr/bin/env bash
 
+LOADING="Searching for Network connections\0icon\x1fvcs-update-required"
 CONFIRMATION="Disconnect\0icon\x1fvcs-normal\nCancel\0icon\x1fvcs-conflicting"
 
 FLAGS="-dmenu -show-icons"
+ATHEME="-theme ~/.config/rofi/alert-theme.rasi"
 MTHEME="-theme ~/.config/rofi/wifi-theme.rasi"
 ITHEME="-theme ~/.config/rofi/input-theme.rasi"
 CTHEME="-theme ~/.config/rofi/confirm-theme.rasi"
 
-# TODO: Add a loading widget
+echo -en $LOADING | rofi $FLAGS $ATHEME & #Loading window in background
+LOADPID=$! #Pid
+
+# Fetch the SSIDs
 OPTIONS=$(python3 "$HOME/.config/rofi/wifi-utils.py" | cut -d "'" -f2)
 
+kill $LOADPID 2> /dev/null #Kill Loading window
+
+# SSID selection window
 SSID=$(echo -en $OPTIONS | rofi $FLAGS $MTHEME)
 
 if [[ $SSID == "" ]]; then
