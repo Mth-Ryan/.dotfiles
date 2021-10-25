@@ -1,16 +1,11 @@
 /* vim: set syntax=css: */
 
-configuration {
-	modi: "window,run,drun";
-	display-drun: "";
-}
-
 * {
     background: #1B1C24;
 	background-alt: #262833;
     foreground: #ffffff;
     foreground-alt: #cccccc;
-    font: "SF Pro Display 10";
+    font: "SF Pro Display 11";
 }
 
 window {
@@ -18,71 +13,47 @@ window {
     background-color: @background-alt;
     border-color: @background-alt;
     border-radius: 8;
-	width: 650px;
+	width: 350px;
+    location: north east;
+    x-offset: -5;
+    y-offset: 25;
 }
 
-prompt {
-	enabled: true;
-	background-color: @background-alt;
-	text-color: @foreground;
-	horizontal-align: 0.5;
-    vertical-align: 0.5;
-	padding: 0px 10px 0px 10px;
-    font: "SF Pro Display 20";
-}
-
-entry {
-	background-color: @background-alt;
-	text-color: @foreground;
-	placeholder-color: @foreground-alt;
-    vertical-align: 0.5;
-	placeholder: "Search";
-}
-
-inputbar {
-	children: [ prompt, entry ];
-	background-color: @background-alt;
-	padding: 5px;
-	margin: 15px 15px 15px 15px;
-	border-radius: 5px;
-}
 
 listview {
 	background-color: @background;
-	margin: 0px 15px 15px 15px;
-	lines: 3;
-	columns: 4;
+	margin: 15px 15px 15px 15px;
+	lines: 8;
+	columns: 1;
 	cycle: false;
 	dynamic: true;
 	layout: vertical;
 }
 
 mainbox {
-	children: [ inputbar, listview ];
+	children: [ listview ];
 	background-color: @background;
 }
 
 element {
 	background-color: @background;
 	text-color: @foreground;
-	padding: 20px 8px 20px 8px;
-	orientation: vertical;
+	padding: 8px 8px 8px 8px;
 }
 
 element-text {
 	background-color: @background;
 	text-color: @foreground;
 	expand: true;
-	horizontal-align: 0.5;
     vertical-align: 0.5;
 }
 
 element-icon {
 	background-color: @background;
-	margin: 0px 0px 4px 0px;
+	margin: 0px 20px 0px 0px;
 	horizontal-align: 0.5;
     vertical-align: 0.5;
-	size: 60px;
+	size: 20px;
 }
 
 element selected {

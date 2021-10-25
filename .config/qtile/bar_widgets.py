@@ -125,12 +125,18 @@ def init():
             background = fade_colors[2],
             scale = False,
             margin_x = 0,
+            mouse_callbacks = {
+                'Button1': lambda: qtile.cmd_spawn(expanduser("~/.config/rofi/wifi.sh"))
+            },
         ),
         widget.Wlan(
             format = '{essid}',
             disconnected_message = 'Disc',
             interface = 'wlp3s0',
             background = fade_colors[2]
+            mouse_callbacks = {
+                'Button1': lambda: qtile.cmd_spawn(expanduser("~/.config/rofi/wifi.sh"))
+            },
         ),
         widget.Sep(
             padding = 2,
@@ -181,6 +187,8 @@ def init():
             background = fade_colors[0],
             scale = False,
             margin_x = 4,
-            mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(expanduser("~/.config/rofi/powermenu.sh"))},
+            mouse_callbacks = {
+                'Button1': lambda: qtile.cmd_spawn(expanduser("~/.config/rofi/powermenu.sh"))
+            },
         ),
     ]

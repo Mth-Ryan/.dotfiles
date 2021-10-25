@@ -1,0 +1,51 @@
+/* vim: set syntax=css: */
+
+* {
+    background: #1B1C24;
+	background-alt: #262833;
+    foreground: #ffffff;
+    foreground-alt: #cccccc;
+    font: "SF Pro Display 11";
+}
+
+window {
+	transparency: "real";
+    background-color: @background-alt;
+    border-color: @background-alt;
+    border-radius: 8;
+	width: 400px;
+    location: north east;
+    x-offset: -5;
+    y-offset: 25;
+}
+
+prompt {
+	enabled: true;
+	background-color: @background-alt;
+	text-color: @foreground;
+	horizontal-align: 0.5;
+    vertical-align: 0.5;
+	padding: 0px 10px 0px 10px;
+    font: "SF Pro Display 12";
+}
+
+entry {
+	background-color: @background-alt;
+	text-color: @foreground;
+	placeholder-color: @foreground-alt;
+    vertical-align: 0.5;
+	placeholder: "if it's a known connection, just press enter";
+}
+
+inputbar {
+	children: [ prompt, entry ];
+	background-color: @background-alt;
+	padding: 5px;
+	margin: 10px 10px 10px 10px;
+	border-radius: 5px;
+}
+
+mainbox {
+	children: [ inputbar ];
+	background-color: @background;
+}
