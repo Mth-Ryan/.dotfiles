@@ -2,8 +2,11 @@ export DOTFILES=$(dirname "$(readlink -f $HOME/.zshrc)")
 
 export ZSH=$HOME/.zsh
 
-#Theme
+# Theme
 source $ZSH/themes/code.zsh
+
+# Plugins
+source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # User configuration
 
