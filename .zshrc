@@ -1,6 +1,10 @@
 export DOTFILES=$(dirname "$(readlink -f $HOME/.zshrc)")
 
 export ZSH=$HOME/.zsh
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
 
 # Theme
 source $ZSH/themes/code.zsh
