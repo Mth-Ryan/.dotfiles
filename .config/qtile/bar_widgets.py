@@ -133,7 +133,7 @@ def init():
             format = '{essid}',
             disconnected_message = 'Disc',
             interface = 'wlp3s0',
-            background = fade_colors[2]
+            background = fade_colors[2],
             mouse_callbacks = {
                 'Button1': lambda: qtile.cmd_spawn(expanduser("~/.config/rofi/wifi.sh"))
             },
