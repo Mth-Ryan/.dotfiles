@@ -1,16 +1,9 @@
 export DOTFILES=$(dirname "$(readlink -f $HOME/.zshrc)")
 
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.zsh
 
-ZSH_THEME="macovsky"
-
-plugins=(
-    git
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-)
-
-source $ZSH/oh-my-zsh.sh
+#Theme
+source $ZSH/themes/code.zsh
 
 # User configuration
 
