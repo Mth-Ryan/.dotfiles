@@ -14,9 +14,27 @@ function branch {
     echo -n $BRANCH
 }
 
+function status {
+    RAW=$(git_status)
+    RAW=("${(f)RAW}")
+    STATUS='%F{red}'
+    for s in $RAW; do
+        case $s in
+            'A' ) STATUS+='+' ;;
+            'M' ) STATUS+='!' ;;
+            'R' ) STATUS+='»' ;;
+            'C' ) STATUS+='' ;;
+            'D' ) STATUS+='' ;;
+            '??') STATUS+='?' ;;
+        esac
+    done
+    STATUS+='%f'
+    echo -n $STATUS
+}
+
 function precmd {
     BRANCH=$(branch)
-    RPROMPT=''
     PROMPT="${ICON} ${FOLDER}${BRANCH} ${SUFIX} "
+    RPROMPT=$(status)
 }
 
