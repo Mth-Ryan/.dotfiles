@@ -12,7 +12,7 @@ if [[ $ACTION != "" ]]; then
     CONFIRM=$(echo -en $CONFIRMATION | rofi $FLAGS $CTHEME)
     if [[ $CONFIRM == "Continue" ]]; then
         case $ACTION in
-            "Leave")     killall qtile ;;
+            "Leave")     loginctl terminate-user $USER;;
             "Restart")   systemctl reboot ;;
             "Shut Down") systemctl poweroff ;;
             *)           echo "Ivalid Option";;
