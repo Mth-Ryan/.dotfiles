@@ -20,6 +20,9 @@ set completion-highlight-bg "#1B1C24"
 set completion-bg "#1B1C24"
 set completion-fg "#D4D2CF"
 
+set notification-bg "#1B1C24"
+set notification-fg "#D4D2CF"
+
 set notification-error-bg "#1B1C24"
 set notification-error-fg "#D4D2CF"
 
