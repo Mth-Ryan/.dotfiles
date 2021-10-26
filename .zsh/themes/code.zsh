@@ -17,7 +17,7 @@ function branch {
 function status {
     RAW=$(git_status)
     RAW=("${(f)RAW}")
-    STATUS='%F{red}'
+    STATUS=''
     for s in $RAW; do
         case $s in
             'A' ) STATUS+='+' ;;
@@ -28,8 +28,11 @@ function status {
             '??') STATUS+='?' ;;
         esac
     done
-    STATUS+='%f'
-    echo -n $STATUS
+    if [[ $STATUS != "" ]]; then
+        echo -n '%F{red}['$STATUS']%f'
+    else
+        echo -n ""
+    fi
 }
 
 function precmd {
