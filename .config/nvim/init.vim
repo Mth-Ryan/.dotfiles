@@ -53,6 +53,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 "Languages
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
+Plug 'elixir-editors/vim-elixir'
 Plug 'ionide/Ionide-vim', {
     \ 'do':  'make fsautocomplete',
 \}
