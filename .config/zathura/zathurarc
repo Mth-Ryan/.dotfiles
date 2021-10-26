@@ -1,0 +1,33 @@
+set adjust-open "best-fit"
+
+set font "SF Pro Text 10"
+
+set default-bg "#1B1C24"
+set default-fg "#D4D2CF"
+
+set statusbar-bg "#1B1C24"
+set statusbar-fg "#525863"
+
+set inputbar-bg "#1B1C24"
+set inputbar-fg "#D4D2CF"
+
+set highlight-color "#679DCB"
+set highlight-active-color "#679DCB"
+
+set completion-highlight-fg "#679DCB"
+set completion-highlight-bg "#1B1C24"
+
+set completion-bg "#1B1C24"
+set completion-fg "#D4D2CF"
+
+set notification-error-bg "#1B1C24"
+set notification-error-fg "#D4D2CF"
+
+set notification-warning-bg "#1B1C24"
+set notification-warning-fg "#D4D2CF"
+
+set recolor true
+set recolor-lightcolor "#1B1C24"
+set recolor-darkcolor "#D4D2CF"
+set recolor-reverse-video "true"
+set recolor-keephue "true"
