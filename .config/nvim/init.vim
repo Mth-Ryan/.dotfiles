@@ -35,7 +35,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
 Plug 'akinsho/nvim-bufferline.lua'
-Plug 'frazrepo/vim-rainbow'
 
 "Utility
 Plug 'windwp/nvim-autopairs'
@@ -110,14 +109,6 @@ require("status-line")
 require("buffer-line")
 
 EOF
-
-au FileType scheme,lisp call rainbow#load()
-let g:rainbow_guifgs = ['#D4D2CF',
-                       \'#BF5151',
-                       \'#fd9149',
-                       \'#f0c674',
-                       \'#bfd066',
-                       \'#9BC5AF']
 
 " }}}
 
