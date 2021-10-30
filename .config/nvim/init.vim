@@ -209,11 +209,9 @@ local lspconfig = require('lspconfig')
 local home = os.getenv("HOME")
 local pid = vim.fn.getpid()
 
-local omnisharp_bin = home .. "/.local/share/omnisharp/run"
-
 -- C#
 lspconfig.omnisharp.setup {
-    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
+    cmd = { "omnisharp", "--languageserver" , "--hostPID", tostring(pid) };
 }
 
 -- F#
