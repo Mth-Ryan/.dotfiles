@@ -38,16 +38,14 @@ Plug 'akinsho/nvim-bufferline.lua'
 
 "Utility
 Plug 'windwp/nvim-autopairs'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 
 "Languages
 Plug 'fatih/vim-go'
@@ -241,27 +239,27 @@ lspconfig.ccls.setup {
 
 -- Nvim-lsputils
 
-vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
-vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
-vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
+vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
+vim.lsp.handlers['textDocument/codeAction']  = require'lsputil.codeAction'.code_action_handler
+vim.lsp.handlers['textDocument/references']  = require'lsputil.locations'.references_handler
+vim.lsp.handlers['textDocument/definition']  = require'lsputil.locations'.definition_handler
 vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
 vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
 vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
 vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
-vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
 
 EOF
 
-autocmd BufEnter * lua require'completion'.on_attach()
+" Coq_Nvim
 
-imap <silent> <C-Space> <Plug>(completion_trigger)
-
-set completeopt=menuone,noinsert,noselect
-
-set shortmess+=c
-
-let g:completion_enable_snippet = 'UltiSnips'
-let g:UltiSnipsJumpForwardTrigger  = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:coq_settings = {
+    \ 'auto_start': 'shut-up',
+    \ 'display': {
+        \ 'preview': {
+            \'border': ["", "", "", "", "", "", "", ""]
+        \}
+    \}
+\}
+lua require('coq')
 
 " }}}
