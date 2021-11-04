@@ -22,6 +22,7 @@ The full setup will require some dependencies to work, the list with the main de
 * [neovim](https://neovim.io/) 0.5^ (optional)
 * [git](https://git-scm.com/)
 * [pulseaudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)
+* [networkmanager](https://github.com/NetworkManager/NetworkManager)
 * [zsh](https://www.zsh.org/)
 * [python](https://www.python.org/)
 * [pip](https://pypi.org/project/pip/)
