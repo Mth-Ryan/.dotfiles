@@ -212,8 +212,7 @@ lspconfig.omnisharp.setup {
     cmd = { "omnisharp", "--languageserver" , "--hostPID", tostring(pid) };
 }
 
--- F#
--- Ionide-vim auto setup
+-- F# (Ionide-vim auto setup)
 
 -- Python
 lspconfig.pyright.setup{}
@@ -224,6 +223,15 @@ lspconfig.gopls.setup{}
 -- Rust
 lspconfig.rust_analyzer.setup {
     cmd = { "rustup", "run", "nightly", "rust-analyzer" }
+}
+
+-- Typescript
+lspconfig.tsserver.setup {
+    cmd = { "typescript-language-server", "--stdio" };
+    filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" };
+    init_options = {
+        hostInfo = "neovim";
+    };
 }
 
 -- C/C++
