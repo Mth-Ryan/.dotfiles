@@ -47,6 +47,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ms-jpq/coq_nvim', { 'branch': 'coq', 'do': ':COQdeps' }
 
 "Languages
@@ -178,6 +179,22 @@ EOF
 " Telescope Keybindings
 nnoremap <C-f> :Telescope find_files theme=get_dropdown<CR>
 
+" Wilder
+call wilder#setup({
+      \ 'modes': [':', '/', '?'],
+      \ 'next_key': '<Tab>',
+      \ 'previous_key': '<S-Tab>',
+      \ 'accept_key': '<Down>',
+      \ 'reject_key': '<Up>',
+\})
+
+call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
+      \ 'highlights': {
+      \   'border': 'Normal',
+      \ },
+      \ 'border': 'rounded',
+\})))
+
 " }}}
 
 " Languages {{{
@@ -268,10 +285,11 @@ let g:coq_settings = {
     \ 'auto_start': 'shut-up',
     \ 'display': {
         \ 'preview': {
-            \'border': ["", "", "", "", "", "", "", ""]
+            \'border': ["╭", "─", "╮", "│", "╯", "─", "╰", "│"]
         \}
     \}
 \}
 lua require('coq')
 
 " }}}
+
