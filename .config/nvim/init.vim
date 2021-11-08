@@ -14,10 +14,12 @@
 syntax enable
 set nu!
 set termguicolors
+set showtabline=2
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set encoding=utf-8
+set mouse=a
 
 " }}}
 
@@ -65,9 +67,11 @@ filetype plugin indent on
 
 " ColorScheme
 colorscheme yat
-hi Normal      guibg=NONE
-hi NonText     guibg=NONE
-hi EndOfBuffer guibg=NONE
+
+" Ui
+let g:neovide_cursor_antialiasing=v:true
+let g:neovide_cursor_vfx_mode = "sonicboom"
+set guifont=Fira\ Code:h12
 
 lua << EOF
 

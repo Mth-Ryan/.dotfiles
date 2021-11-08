@@ -20,6 +20,7 @@ The full setup will require some dependencies to work, the list with the main de
 ## Dependencies
 * [alacritty](https://github.com/alacritty/alacritty)
 * [neovim](https://neovim.io/) 0.5^ (optional)
+* [neovide](https://github.com/neovide/neovide) (optional)
 * [git](https://git-scm.com/)
 * [pulseaudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)
 * [networkmanager](https://github.com/NetworkManager/NetworkManager)

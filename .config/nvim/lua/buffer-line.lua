@@ -11,7 +11,7 @@ local colors = {
 
 require("bufferline").setup {
     options = {
-        always_show_bufferline = false,
+        always_show_bufferline = true,
         show_tab_indicators = false,
         diagnostics = false,
         show_close_icon = false,
