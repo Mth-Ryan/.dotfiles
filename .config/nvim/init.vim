@@ -45,6 +45,7 @@ Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'numtostr/FTerm.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -175,8 +176,22 @@ require('telescope').setup {
     },
 }
 
+-- Fterm
+require('FTerm').setup({
+    border = 'rounded',
+    dimensions  = {
+        height = 0.7,
+        width = 0.7,
+    },
+})
+
+local ft_opts = { noremap = true, silent = true }
+
+remap('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>', ft_opts)
+remap('t', '<Esc>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', ft_opts)
+
 -- Nvim-Lua tree
-require'nvim-tree'.setup {
+require('nvim-tree').setup {
   disable_netrw       = true,
   hijack_netrw        = true,
   open_on_setup       = false,
