@@ -45,6 +45,7 @@ Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -174,10 +175,69 @@ require('telescope').setup {
     },
 }
 
+-- Nvim-Lua tree
+require'nvim-tree'.setup {
+  disable_netrw       = true,
+  hijack_netrw        = true,
+  open_on_setup       = false,
+  ignore_ft_on_setup  = {},
+  auto_close          = false,
+  open_on_tab         = false,
+  hijack_cursor       = false,
+  update_cwd          = false,
+  update_to_buf_dir   = {
+    enable = true,
+    auto_open = true,
+  },
+  diagnostics = {
+    enable = false,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    }
+  },
+  update_focused_file = {
+    enable      = false,
+    update_cwd  = false,
+    ignore_list = {}
+  },
+  system_open = {
+    cmd  = nil,
+    args = {}
+  },
+  filters = {
+    dotfiles = false,
+    custom = {}
+  },
+  view = {
+    width = 30,
+    height = 30,
+    hide_root_folder = false,
+    side = 'right',
+    auto_resize = false,
+    mappings = {
+      custom_only = false,
+      list = {}
+    }
+  }
+}
+
 EOF
 
 " Telescope Keybindings
 nnoremap <C-f> :Telescope find_files theme=get_dropdown<CR>
+
+" Tree Keybindings
+nnoremap <C-n>     :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+
+"Temp
+hi NvimTreeFolderName       guifg=#525863
+hi NvimTreeEmptyFolderName  guifg=#525863
+hi NvimTreeOpenedFolderName guifg=#a6adef
 
 " Wilder
 call wilder#setup({
