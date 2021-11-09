@@ -14,7 +14,6 @@
 syntax enable
 set nu!
 set termguicolors
-set showtabline=2
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -230,7 +229,7 @@ require('nvim-tree').setup {
     width = 30,
     height = 30,
     hide_root_folder = false,
-    side = 'right',
+    side = 'left',
     auto_resize = false,
     mappings = {
       custom_only = false,
@@ -250,9 +249,10 @@ nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
 "Temp
-hi NvimTreeFolderName       guifg=#525863
-hi NvimTreeEmptyFolderName  guifg=#525863
+hi NvimTreeFolderName       guifg=#a1a09d
+hi NvimTreeEmptyFolderName  guifg=#a1a09d
 hi NvimTreeOpenedFolderName guifg=#a6adef
+hi VertSplit guifg=#525863
 
 " Wilder
 call wilder#setup({

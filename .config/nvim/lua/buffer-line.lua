@@ -15,7 +15,7 @@ require("bufferline").setup {
         show_tab_indicators = false,
         diagnostics = false,
         show_close_icon = false,
-        indicator_icon = '▎',
+        indicator_icon = '┃',
         buffer_close_icon = 'x',
         modified_icon = '●',
         separator_style = { '', '' },
@@ -44,7 +44,7 @@ require("bufferline").setup {
         },
         buffer_visible = {
             guifg = colors.fg2,
-            guibg = colors.bg2,
+            guibg = colors.bg,
         },
         close_button = {
             guifg = colors.bg4,
@@ -56,7 +56,7 @@ require("bufferline").setup {
         },
         close_button_visible = {
             guifg = colors.fg2,
-            guibg = colors.bg2,
+            guibg = colors.bg,
         },
         modified = {
             guifg = colors.fg4,
@@ -68,14 +68,14 @@ require("bufferline").setup {
         },
         modified_visible = {
             guifg = colors.green,
-            guibg = colors.bg2,
+            guibg = colors.bg,
         },
         indicator_selected = {
             guifg = colors.cyan,
-            guibg = colors.bg3,
+            guibg = colors.bg,
         },
         separator_visible = {
-            guifg = colors.bg2,
+            guifg = colors.bg,
             guibg = colors.bg,
         },
         separator_selected = {
@@ -83,7 +83,7 @@ require("bufferline").setup {
             guibg = colors.bg,
         },
         separator = {
-            guifg = colors.bg3,
+            guifg = colors.bg,
             guibg = colors.bg,
         },
     },
