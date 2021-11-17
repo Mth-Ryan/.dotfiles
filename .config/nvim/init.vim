@@ -73,7 +73,7 @@ colorscheme yat
 " Ui
 let g:neovide_cursor_antialiasing=v:true
 let g:neovide_cursor_vfx_mode = "sonicboom"
-set guifont=Fira\ Code:h12
+set guifont=FiraCode\ Nerd\ Font\ Mono:h12
 
 lua << EOF
 

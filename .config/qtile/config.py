@@ -17,14 +17,18 @@ groups = [Group(i) for i in "12345"]
 
 layouts = [
     layout.MonadTall(
-        border_width=0,
-        margin=13,
-        ratio=0.55 
+        border_width=1,
+        border_focus='#c3c1be',
+        border_normal='#40414D',
+        margin=20,
+        ratio=0.5 
     ),
     layout.Max(),
     layout.Matrix(
-        border_width=0,
-        margin=10
+        border_width=1,
+        border_focus='#c3c1be',
+        border_normal='#40414D',
+        margin=15
     ),
 ]
 

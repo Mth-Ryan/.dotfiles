@@ -7,8 +7,8 @@ function run {
 }
 
 declare -A commands=(
-	["picom"]="-b --experimental-backends"
-	["nitrogen"]="--restore"
+    ["picom"]="-b"
+    ["nitrogen"]="--restore"
     ["setxkbmap"]="-layout us -variant altgr-intl"
 )
 

@@ -3,7 +3,7 @@ from libqtile import qtile
 from os.path import expanduser
 
 fade_colors = [
-    '#111116',
+    '#14151B',
     '#1B1C24',
     '#262833',
 ]

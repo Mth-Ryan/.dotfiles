@@ -6,8 +6,8 @@ configuration {
 }
 
 * {
-    background: #1B1C24;
-	background-alt: #262833;
+    background: #14151B;
+	background-alt: #1B1C24;
     foreground: #ffffff;
     foreground-alt: #cccccc;
     font: "SF Pro Display 10";
