@@ -26,6 +26,9 @@ The full setup will require some dependencies to work, the list with the main de
 * [pavucontrol](https://archlinux.org/packages/extra/x86_64/pavucontrol/)
 * [networkmanager](https://archlinux.org/packages/extra/x86_64/networkmanager/)
 * [zsh](https://archlinux.org/packages/extra/x86_64/zsh/)
+* [bat](https://archlinux.org/packages/community/x86_64/bat/)
+* [highlight](https://archlinux.org/packages/community/x86_64/highlight/)
+* [lesspipe](https://archlinux.org/packages/community/any/lesspipe/)
 * [python](https://archlinux.org/packages/core/x86_64/python/)
 * [pip](https://archlinux.org/packages/extra/any/python-pip/)
 * [psutil](https://archlinux.org/packages/community/x86_64/python-psutil/)
@@ -58,7 +61,7 @@ cd yay && makepkg -i # make sure your user belongs to the wheel group
 After yay installation, you can simply get all dependencies with the command bellow:
 
 ```bash
-yay -S kitty neovim pulseaudio pavucontrol networkmanager zsh python python-iwlib python-psutil xorg-xrandr qtile picom rofi nitrogen papirus-icon-theme zathura zathura-pdf-mupdf xclip neovide-git cava
+yay -S kitty neovim pulseaudio pavucontrol networkmanager zsh bat highlight lesspipe python python-iwlib python-psutil xorg-xrandr qtile picom rofi nitrogen papirus-icon-theme zathura zathura-pdf-mupdf xclip neovide-git cava
 ```
 
 Use nitrogen to set the wallpaper and acticvate the pulseaudio deamon with this command:
