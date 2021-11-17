@@ -13,9 +13,9 @@ cd $HOME/.dotfiles
 The full setup will require some dependencies to work, the list with the main dependencies is at the [end of the README](#dependencies).
 
 ## Preview
-![Code Workflow](./screenshots/rust.png)
+![Code Workflow](./assets/Screenshot1.png)
 ---
-![Zathura and Neovim theme](./screenshots/scheme.png)
+![Desktop](./assets/Screenshot2.png)
 
 ## Dependencies
 * [alacritty](https://github.com/alacritty/alacritty)
