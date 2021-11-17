@@ -18,19 +18,51 @@ The full setup will require some dependencies to work, the list with the main de
 ![Desktop](./assets/Screenshot2.png)
 
 ## Dependencies
-* [alacritty](https://github.com/alacritty/alacritty)
-* [neovim](https://neovim.io/) 0.5^ (optional)
-* [neovide](https://github.com/neovide/neovide) (optional)
-* [git](https://git-scm.com/)
-* [pulseaudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)
-* [networkmanager](https://github.com/NetworkManager/NetworkManager)
-* [zsh](https://www.zsh.org/)
-* [python](https://www.python.org/)
-* [pip](https://pypi.org/project/pip/)
-* [psutil](https://pypi.org/project/psutil/)
-* [qtile](http://www.qtile.org/)
-* [picom](https://github.com/ibhagwan/picom/tree/next-rebase)
-* [rofi](https://github.com/davatorium/rofi)
-* [zathura](https://pwmt.org/projects/zathura/) (optional)
-* [mupdf](https://mupdf.com/) (for zathura)
-* [xclip](https://github.com/astrand/xclip) (optional)
+* [kitty](https://archlinux.org/packages/community/x86_64/kitty/)
+* [neovim](https://archlinux.org/packages/community/x86_64/neovim/) 0.5^ (optional)
+* [neovide](https://aur.archlinux.org/packages/neovide/) (optional)
+* [git](https://archlinux.org/packages/extra/x86_64/git/)
+* [pulseaudio](https://archlinux.org/packages/extra/x86_64/pulseaudio/)
+* [pavucontrol](https://archlinux.org/packages/extra/x86_64/pavucontrol/)
+* [networkmanager](https://archlinux.org/packages/extra/x86_64/networkmanager/)
+* [zsh](https://archlinux.org/packages/extra/x86_64/zsh/)
+* [python](https://archlinux.org/packages/core/x86_64/python/)
+* [pip](https://archlinux.org/packages/extra/any/python-pip/)
+* [psutil](https://archlinux.org/packages/community/x86_64/python-psutil/)
+* [iwlib](https://archlinux.org/packages/community/x86_64/python-iwlib/)
+* [xorg-xrandr](https://archlinux.org/packages/extra/x86_64/xorg-xrandr/)
+* [qtile](https://archlinux.org/packages/community/x86_64/qtile/)
+* [picom](https://archlinux.org/packages/community/x86_64/picom/)
+* [rofi](https://archlinux.org/packages/community/x86_64/rofi/)
+* [nitrogen](https://archlinux.org/packages/extra/x86_64/nitrogen/)
+* [papirus-icon-theme](https://archlinux.org/packages/community/any/papirus-icon-theme/)
+* [feh](https://archlinux.org/packages/extra/x86_64/feh/) (optional)
+* [thunar](https://archlinux.org/packages/extra/x86_64/thunar/) (optional)
+* [zathura](https://archlinux.org/packages/community/x86_64/zathura/) (optional)
+* [zathura-pdf-mupdf](https://archlinux.org/packages/community/x86_64/zathura-pdf-mupdf/) (optional)
+* [xclip](https://archlinux.org/packages/extra/x86_64/xclip/) (optional)
+* [cava](https://aur.archlinux.org/packages/cava/) (optional)
+* [yay](https://aur.archlinux.org/yay/) (optional, Arch only)
+* [go](https://archlinux.org/packages/community/x86_64/go/) (optional, yay dependencie)
+
+To install All dependencies on [Arch Linux](https://archlinux.org/) just follow this steps:
+
+First you will need an Aur helper to install Cava and Neovide more easily, yay is a good option.
+
+```bash
+sudo pacman -S git go base-devel # dependecies 
+cd /tmp && git clone https://aur.archlinux.org/yay.git
+cd yay && makepkg -i # make sure your user belongs to the wheel group
+```
+
+After yay installation, you can simply get all dependencies with the command bellow:
+
+```bash
+yay -S kitty neovim pulseaudio pavucontrol networkmanager zsh python python-iwlib python-psutil xorg-xrandr qtile picom rofi nitrogen papirus-icon-theme zathura zathura-pdf-mupdf xclip neovide-git cava
+```
+
+Use nitrogen to set the wallpaper and acticvate the pulseaudio deamon with this command:
+
+```bash
+systemctl --user enable pulseaudio 
+```
