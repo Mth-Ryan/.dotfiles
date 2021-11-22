@@ -45,6 +45,14 @@ syn cluster stCode add=stInteger,stFloat
 
 " }}} End Numbers
 
+" Chars {{{
+
+syn match stChar "$."
+
+syn cluster stCode add=stChar
+
+" }}} End Chars
+
 " Conditional {{{
 
 syn match stConditional "\<ifTrue:"
@@ -136,6 +144,7 @@ hi def link stString        String
 hi def link stNil           Constant
 hi def link stInteger       Number
 hi def link stFloat         Float
+hi def link stChar          Character
 hi def link stObject        Type
 hi def link stBinaryMensage Function
 hi def link stRepeat        Repeat
