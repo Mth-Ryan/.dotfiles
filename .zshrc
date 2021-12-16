@@ -20,7 +20,8 @@ source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.aliases
 
 # Rustup
-source $HOME/.cargo/env
+# WARNING: Currently using arch's rustup
+#source $HOME/.cargo/env
 
 # Go
 export GOPATH=$HOME/.go
