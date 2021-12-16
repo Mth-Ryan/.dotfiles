@@ -43,6 +43,7 @@ The full setup will require some dependencies to work, the list with the main de
 * [apple-fonts](https://aur.archlinux.org/packages/apple-fonts/)
 * [lxappearance](https://archlinux.org/packages/community/x86_64/lxappearance/) (optional)
 * [feh](https://archlinux.org/packages/extra/x86_64/feh/) (optional)
+* [mpv](https://archlinux.org/packages/community/x86_64/mpv/) (optional)
 * [thunar](https://archlinux.org/packages/extra/x86_64/thunar/) (optional)
 * [xarchiver](https://archlinux.org/packages/community/x86_64/xarchiver/) (optional)
 * [thunar-archive-plugin](https://archlinux.org/packages/extra/x86_64/thunar-archive-plugin/) (optional)
@@ -67,7 +68,7 @@ cd yay && makepkg -i # make sure your user belongs to the wheel group
 After yay installation, you can simply get all dependencies with the command bellow:
 
 ```bash
-yay -S --needed --nodiffmenu --removemake kitty neovim pulseaudio pavucontrol networkmanager zsh bat highlight lesspipe python python-iwlib python-psutil xorg-xrandr qtile picom rofi nitrogen nerd-fonts-fira-code apple-fonts lxappearance thunar xarchiver thunar-archive-plugin thunar-volman feh papirus-icon-theme zathura zathura-pdf-mupdf xclip neovide-git cava
+yay -S --needed --nodiffmenu --removemake kitty neovim pulseaudio pavucontrol networkmanager zsh bat highlight lesspipe python python-iwlib python-psutil xorg-xrandr qtile picom rofi nitrogen nerd-fonts-fira-code apple-fonts lxappearance thunar xarchiver thunar-archive-plugin thunar-volman feh mpv papirus-icon-theme zathura zathura-pdf-mupdf xclip neovide-git cava
 ```
 
 Use nitrogen to set the wallpaper and acticvate the pulseaudio deamon with this command:
