@@ -9,7 +9,8 @@ fade_colors = [
 ]
 
 colors = {
-    "blue": "#679DCB" 
+    "blue": "#679DCB",
+    "red" : "#D93861"
 }
 
 def init():
@@ -34,6 +35,7 @@ def init():
             this_screen_border = colors["blue"],
             other_current_screen_border = fade_colors[2],
             other_screen_border = fade_colors[2],
+            urgent_border = colors["red"],
         ),
         widget.TextBox(
             text = '',
@@ -77,6 +79,10 @@ def init():
             background = fade_colors[2],
             scale = False,
             margin_x = 0,
+        ),
+        widget.NvidiaSensors(
+            background = fade_colors[2],
+            foreground_alert = colors["red"],
         ),
         widget.Sep(
             padding = 2,
