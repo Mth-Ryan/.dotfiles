@@ -2,7 +2,6 @@
 
 import subprocess
 import os
-from typing import List
 
 from keybindings import set_keys, mod
 import bar_widgets
@@ -62,7 +61,7 @@ for i in groups:
 
 # Screen Count
 xrandr_process = subprocess.Popen(
-    'xrandr | grep "\*" | cut -d" " -f4',
+    r'xrandr | grep "\*" | cut -d" " -f4',
     shell=True,
     stdout=subprocess.PIPE
 )
@@ -85,7 +84,7 @@ screens = [
                 opacity=0.65
             )
         )
-        for s in range(screens_cout)
+        for _ in range(screens_cout)
 ]
 
 # }}}
