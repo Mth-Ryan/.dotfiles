@@ -24,44 +24,82 @@ set mouse=a
 
 " Plugins {{{
 
-let s:pluginsPath = '~/.config/nvim/plugged'
+lua << EOF
 
-call plug#begin(s:pluginsPath)
+local fn = vim.fn
+local install_path = 
+    fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
-"Visual
-Plug 'Mth-Ryan/yat'  "colors
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
-Plug 'akinsho/nvim-bufferline.lua'
+if fn.empty(fn.glob(install_path)) > 0 then
+    packer_bootstrap = fn.system({
+        'git', 'clone', '--depth', '1',
+        'https://github.com/wbthomason/packer.nvim',
+        install_path
+    })
+end
 
-"Utility
-Plug 'windwp/nvim-autopairs'
-Plug 'neovim/nvim-lspconfig'
-Plug 'RishabhRD/popfix'
-Plug 'RishabhRD/nvim-lsputils'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'numtostr/FTerm.nvim'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ms-jpq/coq_nvim', { 'branch': 'coq', 'do': ':COQdeps' }
+require('packer').startup(function() 
+    -- Visual
+    use 'Mth-Ryan/yat'  -- colors
+    use 'norcalli/nvim-colorizer.lua'
+    use { 
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+    use 'lukas-reineke/indent-blankline.nvim'
+    use {
+        'glepnir/galaxyline.nvim',
+        branch = 'main'
+    }
+    use {
+        'akinsho/nvim-bufferline.lua',
+        requires = {'kyazdani42/nvim-web-devicons'}
+    }
 
-"Languages
-Plug 'fatih/vim-go'
-Plug 'rust-lang/rust.vim'
-Plug 'elixir-editors/vim-elixir'
-Plug 'ionide/Ionide-vim', {
-    \ 'do':  'make fsautocomplete',
-\}
+    -- Utility
+    use 'windwp/nvim-autopairs'
+    use 'neovim/nvim-lspconfig'
+    use {
+        'RishabhRD/nvim-lsputils',
+        requires = { 'RishabhRD/popfix' }
+    }
+    use 'nvim-lua/popup.nvim'
+    use 'numtostr/FTerm.nvim'
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {'kyazdani42/nvim-web-devicons'}
+    }
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { 
+            'nvim-lua/plenary.nvim',
+            {
+                'nvim-telescope/telescope-fzf-native.nvim',
+                run = 'make'
+            }
+        }
+    }
+    use { 
+        'gelguy/wilder.nvim',
+        run = ':UpdateRemotePlugins'
+    }
+    use {
+        'ms-jpq/coq_nvim',
+        branch = 'coq',
+        run    = ':COQdeps'
+    }
 
-call plug#end()
+    -- Languages
+    use 'fatih/vim-go'
+    use 'rust-lang/rust.vim'
+    use 'elixir-editors/vim-elixir'
+    use {
+        'ionide/Ionide-vim', 
+        run = 'make fsautocomplete'
+    }
+end)
 
-filetype plugin indent on
+EOF
 
 " }}}
 
@@ -73,7 +111,7 @@ colorscheme yat
 " Ui
 let g:neovide_cursor_antialiasing=v:true
 let g:neovide_cursor_vfx_mode = "sonicboom"
-set guifont=FiraCode\ Nerd\ Font\ Mono:h12
+set guifont=FiraCode\ Nerd\ Font\ Mono:h10
 
 lua << EOF
 
@@ -191,51 +229,51 @@ remap('t', '<Esc>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', ft_opts
 
 -- Nvim-Lua tree
 require('nvim-tree').setup {
-  disable_netrw       = true,
-  hijack_netrw        = true,
-  open_on_setup       = false,
-  ignore_ft_on_setup  = {},
-  auto_close          = false,
-  open_on_tab         = false,
-  hijack_cursor       = false,
-  update_cwd          = false,
-  update_to_buf_dir   = {
-    enable = true,
-    auto_open = true,
-  },
-  diagnostics = {
-    enable = false,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
+    disable_netrw       = true,
+    hijack_netrw        = true,
+    open_on_setup       = false,
+    ignore_ft_on_setup  = {},
+    auto_close          = false,
+    open_on_tab         = false,
+    hijack_cursor       = false,
+    update_cwd          = false,
+    update_to_buf_dir   = {
+        enable = true,
+        auto_open = true,
+    },
+    diagnostics = {
+        enable = false,
+        icons = {
+            hint = "",
+            info = "",
+            warning = "",
+            error = "",
+        }
+    },
+    update_focused_file = {
+        enable      = false,
+        update_cwd  = false,
+        ignore_list = {}
+    },
+    system_open = {
+        cmd  = nil,
+        args = {}
+    },
+    filters = {
+        dotfiles = false,
+        custom = {}
+    },
+    view = {
+        width = 30,
+        height = 30,
+        hide_root_folder = false,
+        side = 'left',
+        auto_resize = false,
+        mappings = {
+            custom_only = false,
+            list = {}
+        }
     }
-  },
-  update_focused_file = {
-    enable      = false,
-    update_cwd  = false,
-    ignore_list = {}
-  },
-  system_open = {
-    cmd  = nil,
-    args = {}
-  },
-  filters = {
-    dotfiles = false,
-    custom = {}
-  },
-  view = {
-    width = 30,
-    height = 30,
-    hide_root_folder = false,
-    side = 'left',
-    auto_resize = false,
-    mappings = {
-      custom_only = false,
-      list = {}
-    }
-  }
 }
 
 EOF
@@ -274,7 +312,6 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_bo
 
 " Languages {{{
 
-
 " VimScript
 au FileType vim setlocal foldmethod=marker
 
@@ -304,32 +341,37 @@ local home = os.getenv("HOME")
 local pid = vim.fn.getpid()
 
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    local function buf_set_keymap(...)
+        vim.api.nvim_buf_set_keymap(bufnr, ...)
+    end
+    
+    local function buf_set_option(...)
+        vim.api.nvim_buf_set_option(bufnr, ...)
+    end
 
   -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
-  local opts = { noremap=true, silent=true }
+    local opts = { noremap=true, silent=true }
 
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+    buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 end
 
