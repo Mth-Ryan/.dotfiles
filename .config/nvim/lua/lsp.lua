@@ -99,6 +99,12 @@ lsp.enable_ccls = function()
     }
 end
 
+lsp.enable_clangd = function()
+    require('lspconfig').clangd.setup {
+        on_attach = on_attach,
+    }
+end
+
 lsp.utils_setup = function()
     vim.lsp.handlers['workspace/symbol'] = require('lsputil.symbols').workspace_handler
     vim.lsp.handlers['textDocument/codeAction']  = require('lsputil.codeAction').code_action_handler

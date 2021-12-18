@@ -54,7 +54,8 @@ lsp.enable_pyright()
 lsp.enable_gopls()
 lsp.enable_rust_analyzer()
 lsp.enable_tsserver()
-lsp.enable_ccls()
+-- lsp.enable_ccls()
+lsp.enable_clangd()
 
 -- Completition
 utilities.enable_coq()
