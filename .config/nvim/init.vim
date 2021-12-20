@@ -19,7 +19,7 @@ set encoding=utf-8
 set mouse=a
 let g:neovide_cursor_antialiasing=v:true
 let g:neovide_cursor_vfx_mode = "sonicboom"
-set guifont=FiraCode\ Nerd\ Font\ Mono:h10
+set guifont=FiraCode\ Nerd\ Font\ Mono:h12
 
 lua << EOF
 
@@ -56,6 +56,7 @@ lsp.enable_rust_analyzer()
 lsp.enable_tsserver()
 -- lsp.enable_ccls()
 lsp.enable_clangd()
+lsp.enable_sourcekit()
 
 -- Completition
 utilities.enable_coq()

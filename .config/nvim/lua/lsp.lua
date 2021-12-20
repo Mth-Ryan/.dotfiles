@@ -105,6 +105,13 @@ lsp.enable_clangd = function()
     }
 end
 
+lsp.enable_sourcekit = function()
+    require('lspconfig').sourcekit.setup{
+        on_attach = on_attach,
+        filetypes = { "swift" },
+    }
+end
+
 lsp.utils_setup = function()
     vim.lsp.handlers['workspace/symbol'] = require('lsputil.symbols').workspace_handler
     vim.lsp.handlers['textDocument/codeAction']  = require('lsputil.codeAction').code_action_handler
