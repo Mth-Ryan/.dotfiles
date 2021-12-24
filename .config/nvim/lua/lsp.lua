@@ -106,9 +106,15 @@ lsp.enable_clangd = function()
 end
 
 lsp.enable_sourcekit = function()
-    require('lspconfig').sourcekit.setup{
+    require('lspconfig').sourcekit.setup {
         on_attach = on_attach,
         filetypes = { "swift" },
+    }
+end
+
+lsp.enable_hls = function()
+    require('lspconfig').hls.setup {
+        on_attach = on_attach,
     }
 end
 

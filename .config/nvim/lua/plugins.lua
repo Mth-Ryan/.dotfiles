@@ -74,6 +74,7 @@ plugins.setup = function()
             'ionide/Ionide-vim', 
             run = 'make fsautocomplete'
         }
+        use 'neovimhaskell/haskell-vim'
     end)
 end
 

@@ -57,11 +57,14 @@ lsp.enable_tsserver()
 -- lsp.enable_ccls()
 lsp.enable_clangd()
 lsp.enable_sourcekit()
+lsp.enable_hls()
 
 -- Completition
 utilities.enable_coq()
 
 EOF
+
+filetype plugin indent on
 
 "Temp
 hi NvimTreeFolderName       guifg=#a1a09d
