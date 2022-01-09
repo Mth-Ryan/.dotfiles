@@ -30,3 +30,6 @@ export GOBIN=$GOPATH/bin
 # less command highlight
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
