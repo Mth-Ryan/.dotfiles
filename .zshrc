@@ -19,17 +19,11 @@ source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Aliases
 source $HOME/.aliases
 
-# Rustup
-# WARNING: Currently using arch's rustup
-#source $HOME/.cargo/env
-
 # Go
 export GOPATH=$HOME/.go
 export GOBIN=$GOPATH/bin
 
-# less command highlight
-export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
-export LESS=' -R '
-
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-
+# Asdf
+. $HOME/.asdf/asdf.sh
+fpath=(${ASDF_DIR}/completions $fpath)
+autoload -Uz compinit && compinit
