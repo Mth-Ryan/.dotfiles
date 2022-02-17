@@ -8,7 +8,7 @@ setopt appendhistory
 setopt prompt_subst
 
 # Theme
-source $ZSH/themes/code.zsh
+source $ZSH/themes/silverblue.zsh
 
 # Plugins
 source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
