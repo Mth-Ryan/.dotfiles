@@ -53,7 +53,7 @@ The full setup will require some dependencies to work, the list with the main de
 * [xclip](https://archlinux.org/packages/extra/x86_64/xclip/) (optional)
 * [cava](https://aur.archlinux.org/packages/cava/) (optional)
 * [yay](https://aur.archlinux.org/yay/) (optional, Arch only)
-* [go](https://archlinux.org/packages/community/x86_64/go/) (optional, yay dependencie)
+* [go](https://archlinux.org/packages/community/x86_64/go/) (optional, yay dependency)
 
 To install All dependencies on [Arch Linux](https://archlinux.org/) just follow this steps:
 
